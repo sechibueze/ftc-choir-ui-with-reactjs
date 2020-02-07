@@ -1,17 +1,27 @@
 import React, { Component } from "react";
 import "./HomeStyle.css";
+import { Link } from "react-router-dom";
 
 class Home extends Component {
   render() {
     return (
       <div>
         <div className="container-fluid home-main">
-          <h2>
+          <h2 className="intro-backdrop">
             Faith Tabernacle Choir Directory <span className="blinker">.</span>
           </h2>
-          <button type="submit" className="btn btn-outline-success">
-            Login/Signup Now
-          </button>
+          <div className="row">
+            <div className="col-md-6">
+              <Link className="btn btn-success" to="/signup">
+               Signup 
+              </Link>
+            </div>
+            <div className="col-md-6">
+              <Link className="btn btn-primary" to="/login">
+                Login
+              </Link>
+            </div>
+          </div>
         </div>
         <div className="container-fluid home-content1">
           <div className="row">

@@ -1,91 +1,155 @@
 import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
+import classnames from "classnames";
 import "./Signup.css";
 
 class Signup extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {};
+    this.state = {
+      firstname: '',
+      lastname: '',
+      email: '',
+      phone: '',
+      password: '',
+      password2: '',
+      errors: {}
+    };
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({
+        errors: nextProps.errors
+      });
+    }
+  }
+
+  // componentDidMount() {
+  //   // If logged in and user navigates to Register page, should redirect them to dashboard
+  //   if (this.props.auth.isAuthenticated) {
+  //     this.props.history.push("/dashboard");
+  //   }
+  // }
+
+  onChange = e => {
+    this.setState({ [e.target.id]: e.target.value });
+  };
+  onSubmit = e => {
+    e.preventDefault();
+    const newUser = {
+      firstname: this.state.firstname,
+      lastname: this.state.lastname,
+      email: this.state.email,
+      phone: this.state.phone,
+      password: this.state.password,
+      password2: this.state.password2
+    };
+    this.props.registerUser(newUser, this.props.history);
+  };
+
   render() {
+    const { errors } = this.state;
     return (
       <div className="container">
         <div className="row">
-          <div className="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-            <form role="form">
-              <h2>
-                Please Sign Up <small>It's free and always will be.</small>
-              </h2>
+          <div className="col-xs-12 col-sm-8 col-md-12 col-sm-offset-2 col-md-offset-3 card">
+            <div className="row">
+              <div className="col-md-12">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQR7Nzcy54zeh5xoeGjU5vUIvsvdcmbnXvarGoG5uSKNcNwbBKE" alt="ft-logo" className="mx-auto d-block img-fluid" />
+                <h3 className="text-center text-black-50">Faith Tabernacle Choir</h3>
+                <p className="text-center">Fill the following information to register into the directory</p>
+              </div>
+            </div>
+            <form noValidate onSubmit={this.onSubmit}>
               <hr className="colorgraph" />
               <div class="row">
                 <div className="col-xs-12 col-sm-6 col-md-6">
                   <div class="form-group">
                     <input
+                      onChange={this.onChange}
+                      value={this.state.firstname}
+                      error={errors.firstname}
+                      id="firstname"
                       type="text"
-                      name="first_name"
-                      id="first_name"
-                      className="form-control input-lg"
                       placeholder="First Name"
-                      tabindex="1"
+                      className={classnames("form-control", {
+                        invalid: errors.firstname
+                      })}
                     />
                   </div>
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-6">
                   <div className="form-group">
                     <input
+                      onChange={this.onChange}
+                      value={this.state.lastname}
+                      error={errors.lastname}
+                      id="lastname"
                       type="text"
-                      name="last_name"
-                      id="last_name"
-                      className="form-control input-lg"
                       placeholder="Last Name"
-                      tabindex="2"
+                      className={classnames("form-control", {
+                        invalid: errors.lastname
+                      })}
                     />
                   </div>
                 </div>
               </div>
               <div className="form-group">
                 <input
-                  type="text"
-                  name="display_name"
-                  id="display_name"
-                  className="form-control input-lg"
-                  placeholder="Display Name"
-                  tabindex="3"
+                  onChange={this.onChange}
+                  value={this.state.email}
+                  error={errors.email}
+                  id="email"
+                  type="email"
+                  placeholder="Email Address"
+                  className={classnames("form-control", {
+                    invalid: errors.email
+                  })}
                 />
               </div>
               <div className="form-group">
                 <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  className="form-control input-lg"
-                  placeholder="Email Address"
-                  tabindex="4"
+                  onChange={this.onChange}
+                  value={this.state.phone}
+                  error={errors.phone}
+                  id="phone"
+                  type="tel"
+                  placeholder="Mobile Number"
+                  className={classnames("form-control", {
+                    invalid: errors.phone
+                  })}
                 />
               </div>
               <div className="row">
                 <div className="col-xs-12 col-sm-6 col-md-6">
                   <div className="form-group">
                     <input
-                      type="password"
-                      name="password"
+                      onChange={this.onChange}
+                      value={this.state.password}
+                      error={errors.password}
                       id="password"
-                      className="form-control input-lg"
+                      type="password"
                       placeholder="Password"
-                      tabindex="5"
+                      className={classnames("form-control", {
+                        invalid: errors.password
+                      })}
                     />
                   </div>
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-6">
                   <div class="form-group">
                     <input
+                      onChange={this.onChange}
+                      value={this.state.password2}
+                      error={errors.password2}
+                      id="password2"
                       type="password"
-                      name="password_confirmation"
-                      id="password_confirmation"
-                      className="form-control input-lg"
-                      placeholder="Confirm Password"
-                      tabindex="6"
+                      placeholder="Confrim password"
+                      className={classnames("form-control", {
+                        invalid: errors.password2
+                      })}
                     />
                   </div>
                 </div>
@@ -95,7 +159,7 @@ class Signup extends Component {
                   <span className="button-checkbox">
                     <button
                       type="button"
-                      className="btn"
+                      className="btn btn-info"
                       data-color="info"
                       tabindex="7"
                     >
@@ -223,5 +287,16 @@ class Signup extends Component {
     );
   }
 }
+
+Signup.propTypes = {
+  registerUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth,
+  errors: state.errors
+});
 
 export default Signup;

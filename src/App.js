@@ -7,9 +7,11 @@ import Signup from "./components/Signup/Signup";
 class App extends Component {
   render() {
     return (
-      <div className="container">
-        <Route path="/" exact component={Home} />
-        <Route path="/signup" exact component={Signup} />
+      <div className="container-fluid">
+        <Router>
+          <Route path="/" exact component={Home} />
+          <Route path="/signup" exact component={Signup} />
+        </Router>
       </div>
     );
   }

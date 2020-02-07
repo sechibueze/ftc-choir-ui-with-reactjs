@@ -1,5 +1,7 @@
 .home-main {
-    background: #5812c5;
+    background-image: url(https://1.bp.blogspot.com/-nqVWtbwO0Xw/VJK9e1rUOtI/AAAAAAAAAwM/0O9JCTWxOdA/s1600/IMG_9335.JPG);
+    background-repeat: no-repeat;
+    background-size: cover;
     color: #fff;
     padding: 13%;
     text-align: center;
@@ -54,4 +56,9 @@
 
 .home-content2 p span {
     font-weight: 500;
+}
+
+.intro-backdrop {
+    background-color: #000;
+    opacity: 0.5;
 }
