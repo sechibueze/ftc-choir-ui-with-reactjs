@@ -14,7 +14,7 @@ class Signup extends Component {
       phone: '',
       password: '',
       password2: '',
-      errors: {}
+      errors: {},
     };
   }
 
