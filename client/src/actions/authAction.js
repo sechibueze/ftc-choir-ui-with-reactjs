@@ -7,7 +7,7 @@ import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from './types';
 // Register User
 export const registerUser = (userData, history) => dispatch => {
     axios
-        .post('/api/v1/auth/signup', userData)
+        .post('https://ftc2020.herokuapp.com/api/v1/auth/signup', userData)
         .then(res => history.push('/login'))
 
         // re-direct to login on successful register
@@ -22,7 +22,7 @@ export const registerUser = (userData, history) => dispatch => {
 // Login - get user token
 export const loginUser = userData => dispatch => {
     axios
-        .post('/api/v1/auth/login', userData)
+        .post('https://ftc2020.herokuapp.com/api/v1/auth/login', userData)
         .then(res => {
             // Save to localStorage
             // Set token to localStorage

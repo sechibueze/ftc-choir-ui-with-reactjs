@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from "react-router-dom";
-import PropTypes from "prop-types";
-import classnames from "classnames";
-
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { loginUser } from '../../actions/authAction';
+import classnames from 'classnames';
 import './LoginStyle.css';
 
 class Login extends Component {
@@ -11,11 +12,11 @@ class Login extends Component {
     this.state = {
       email: "",
       password: "",
-      errors: {}
+      errors: {},
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
       this.props.history.push("/dashboard"); // push user to contact page when they login
     }
@@ -27,12 +28,12 @@ class Login extends Component {
     }
   }
 
-//   componentDidMount() {
-//     // If logged in and user navigates to Login page, should redirect them to dashboard
-//     if (this.props.auth.isAuthenticated) {
-//       this.props.history.push("/dashboard");
-//     }
-//   }
+  componentDidMount() {
+    // If logged in and user navigates to Login page, should redirect them to dashboard
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/dashboard");
+    }
+  }
 
   onChange = e => {
     this.setState({ [e.target.id]: e.target.value });
@@ -70,46 +71,59 @@ class Login extends Component {
             </div>
             <form noValidate onSubmit={this.onSubmit}>
               <hr className="colorgraph" />
-              <div class="row">
+              <div className="row">
                 <div className="col-xs-12 col-sm-6 col-md-6">
-                  <div class="form-group">
+                  <div className="form-group">
+                    <label htmlFor="email">Email Address</label>
+
                     <input
-                      onChange={this.onChange}
-                      value={this.state.email}
-                      error={errors.email}
-                      id="Email Address"
-                      type="email"
-                      placeholder="Enter your Email address"
-                      className={classnames("form-control", {
-                        invalid: errors.email
-                      })}
+                        onChange={this.onChange}
+                        value={this.state.email}
+                        error={errors.email}
+                        id="email"
+                        type="email"
+                        className={classnames('form-control', {
+                          invalid: errors.email || errors.emailnotfound,
+                        })}
                     />
+                    <span className="text-danger">
+                          {errors.email}
+                      {errors.emailnotfound}
+                        </span>
                   </div>
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-6">
                   <div className="form-group">
+                    <label htmlFor="password">Password</label>
+
                     <input
-                      onChange={this.onChange}
-                      value={this.state.password}
-                      error={errors.password}
-                      id="password"
-                      type="password"
-                      placeholder="Enter password"
-                      className={classnames("form-control", {
-                        invalid: errors.password
-                      })}
+                        onChange={this.onChange}
+                        value={this.state.password}
+                        error={errors.password}
+                        id="password"
+                        type="password"
+                        className={classnames('form-control', {
+                          invalid:
+                              errors.password || errors.passwordincorrect,
+                        })}
                     />
+                    <span className="text-danger">
+                          {errors.password}
+                      {errors.passwordincorrect}
+                        </span>
                   </div>
                 </div>
               </div>
-              <hr clasName="colorgraph" />
+              <hr className="colorgraph" />
               <div className="row">
                 <div className="col-xs-12 col-md-6">
                 </div>
                 <div className="col-xs-12 col-md-6">
-                  <a href="#" class="btn btn-success btn-block btn-lg">
-                    Sign In
-                  </a>
+                  <input
+                      type="submit"
+                      className="btn btn-success btn-lg d-block"
+                      value="Login"
+                  />
                 </div>
               </div>
             </form>
@@ -120,16 +134,19 @@ class Login extends Component {
   }
 }
 
+
 Login.propTypes = {
   loginUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired
+  errors: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({
   auth: state.auth,
-  errors: state.errors
+  errors: state.errors,
 });
 
-
-export default Login
+export default connect(
+    mapStateToProps,
+    { loginUser },
+)(Login);

@@ -13,7 +13,7 @@ class Dashboard extends Component {
 
         return (
             <div>
-                <h3>Hello {user.firstname.split(' ')}, Howdy?</h3>
+                <h3>Hello {user.firstname.split(' ')[0]}, Howdy?</h3>
 
                 <Footer/>
             </div>

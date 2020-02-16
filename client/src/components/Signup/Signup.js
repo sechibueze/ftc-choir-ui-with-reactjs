@@ -1,7 +1,9 @@
-import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
-import PropTypes from "prop-types";
-import classnames from "classnames";
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { registerUser } from '../../actions/authAction';
+import classnames from 'classnames';
 import "./Signup.css";
 
 class Signup extends Component {
@@ -18,7 +20,7 @@ class Signup extends Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({
         errors: nextProps.errors
@@ -26,12 +28,12 @@ class Signup extends Component {
     }
   }
 
-  // componentDidMount() {
-  //   // If logged in and user navigates to Register page, should redirect them to dashboard
-  //   if (this.props.auth.isAuthenticated) {
-  //     this.props.history.push("/dashboard");
-  //   }
-  // }
+  componentDidMount() {
+    // If logged in and user navigates to Register page, should redirect them to dashboard
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/dashboard");
+    }
+  }
 
   onChange = e => {
     this.setState({ [e.target.id]: e.target.value });
@@ -64,9 +66,9 @@ class Signup extends Component {
             </div>
             <form noValidate onSubmit={this.onSubmit}>
               <hr className="colorgraph" />
-              <div class="row">
+              <div className="row">
                 <div className="col-xs-12 col-sm-6 col-md-6">
-                  <div class="form-group">
+                  <div className="form-group">
                     <input
                       onChange={this.onChange}
                       value={this.state.firstname}
@@ -75,9 +77,11 @@ class Signup extends Component {
                       type="text"
                       placeholder="First Name"
                       className={classnames("form-control", {
-                        invalid: errors.firstname
+                        invalid: errors.firstname,
                       })}
                     />
+
+                    <span className="text-danger">{errors.firstname}</span>
                   </div>
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-6">
@@ -90,9 +94,10 @@ class Signup extends Component {
                       type="text"
                       placeholder="Last Name"
                       className={classnames("form-control", {
-                        invalid: errors.lastname
+                        invalid: errors.lastname,
                       })}
                     />
+                    <span className="text-danger">{errors.lastname}</span>
                   </div>
                 </div>
               </div>
@@ -105,9 +110,10 @@ class Signup extends Component {
                   type="email"
                   placeholder="Email Address"
                   className={classnames("form-control", {
-                    invalid: errors.email
+                    invalid: errors.email,
                   })}
                 />
+                <span className="text-danger">{errors.email}</span>
               </div>
               <div className="form-group">
                 <input
@@ -118,9 +124,10 @@ class Signup extends Component {
                   type="tel"
                   placeholder="Mobile Number"
                   className={classnames("form-control", {
-                    invalid: errors.phone
+                    invalid: errors.phone,
                   })}
                 />
+                <span className="text-danger">{errors.phone}</span>
               </div>
               <div className="row">
                 <div className="col-xs-12 col-sm-6 col-md-6">
@@ -133,24 +140,26 @@ class Signup extends Component {
                       type="password"
                       placeholder="Password"
                       className={classnames("form-control", {
-                        invalid: errors.password
+                        invalid: errors.password,
                       })}
                     />
+                    <span className="text-danger">{errors.password}</span>
                   </div>
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-6">
-                  <div class="form-group">
+                  <div className="form-group">
                     <input
                       onChange={this.onChange}
                       value={this.state.password2}
                       error={errors.password2}
                       id="password2"
                       type="password"
-                      placeholder="Confrim password"
+                      placeholder="Confirm password"
                       className={classnames("form-control", {
-                        invalid: errors.password2
+                        invalid: errors.password2,
                       })}
                     />
+                    <span className="text-danger">{errors.password2}</span>
                   </div>
                 </div>
               </div>
@@ -161,7 +170,7 @@ class Signup extends Component {
                       type="button"
                       className="btn btn-info"
                       data-color="info"
-                      tabindex="7"
+                      tabIndex="7"
                     >
                       I Agree
                     </button>
@@ -185,18 +194,18 @@ class Signup extends Component {
                 </div>
               </div>
 
-              <hr clasName="colorgraph" />
+              <hr className="colorgraph" />
               <div className="row">
                 <div className="col-xs-12 col-md-6">
                   <input
                     type="submit"
                     value="Register"
                     className="btn btn-primary btn-block btn-lg"
-                    tabindex="7"
+                    tabIndex="7"
                   />
                 </div>
                 <div className="col-xs-12 col-md-6">
-                  <a href="#" class="btn btn-success btn-block btn-lg">
+                  <a href="#" className="btn btn-success btn-block btn-lg">
                     Sign In
                   </a>
                 </div>
@@ -207,7 +216,7 @@ class Signup extends Component {
         <div
           className="modal fade"
           id="t_and_c_m"
-          tabindex="-1"
+          tabIndex="-1"
           role="dialog"
           aria-labelledby="myModalLabel"
           aria-hidden="true"
@@ -288,15 +297,19 @@ class Signup extends Component {
   }
 }
 
+
 Signup.propTypes = {
   registerUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired
+  errors: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({
   auth: state.auth,
-  errors: state.errors
+  errors: state.errors,
 });
 
-export default Signup;
+export default connect(
+    mapStateToProps,
+    { registerUser },
+)(withRouter(Signup));

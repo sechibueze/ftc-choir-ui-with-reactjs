@@ -6,22 +6,43 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <div className="container-fluid home-main">
-          <h2 className="intro-backdrop">
-            Faith Tabernacle Choir Directory <span className="blinker">.</span>
-          </h2>
-          <div className="row">
-            <div className="col-md-6">
-              <Link className="btn btn-success" to="/signup">
-               Signup 
-              </Link>
+        <div id="page">
+          <nav className="gtco-nav" role="navigation">
+            <div className="gtco-container">
+              <div className="row">
+                <div className="col-xs-2">
+                  <div id="gtco-logo"><a href="/">FT CHOIR</a></div>
+                </div>
+                <div className="col-xs-8 text-center menu-1">
+                  <ul>
+                    <li><a href="/contact">Contact</a></li>
+                  </ul>
+                </div>
+                <div className="col-xs-2 text-right hidden-xs menu-2">
+                  <ul>
+                    <li className="btn-cta"><a href="/login"><span>Login</span></a></li>
+                    <li className="btn-cta"><a href="/Signup"><span>Signup</span></a></li>
+                  </ul>
+                </div>
+              </div>
+
             </div>
-            <div className="col-md-6">
-              <Link className="btn btn-primary" to="/login">
-                Login
-              </Link>
+          </nav>
+
+          <header id="gtco-header" className="gtco-cover home-main" role="banner">
+            <div className="gtco-container">
+              <div className="row">
+                <div className="col-md-8 col-md-offset-2 text-center">
+                  <div className="display-t">
+                    <div className="display-tc animate-box" data-animate-effect="fadeIn">
+                      <h1>FT Choir Directory</h1>
+                      <p><a href="/signup" className="btn btn-default">Get Started</a></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
+          </header>
         </div>
         <div className="container-fluid home-content1">
           <div className="row">
