@@ -4,6 +4,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/authAction';
 import Footer from "../layouts/footer/footer";
+import PersonalInfo from "../personalData/personal-info";
+import NokInfo from "../nokData/nok-info";
+import ChoirRole from "../roleData/choir-role";
+import ChurchInfo from "../infoData/church-info";
 
 class Dashboard extends Component {
 
@@ -12,9 +16,13 @@ class Dashboard extends Component {
         const { user } = this.props.auth;
 
         return (
-            <div>
-                <h3>Hello {user.firstname.split(' ')[0]}, Howdy?</h3>
+            <div className="container">
+                <h3>Hello, User Howdy?</h3>
 
+                <PersonalInfo/>
+                <NokInfo/>
+                <ChoirRole/>
+                <ChurchInfo/>
                 <Footer/>
             </div>
         );
