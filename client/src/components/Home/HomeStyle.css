@@ -1,10 +1,10 @@
 .home-main {
     background-image: url(https://1.bp.blogspot.com/-nqVWtbwO0Xw/VJK9e1rUOtI/AAAAAAAAAwM/0O9JCTWxOdA/s1600/IMG_9335.JPG);
-    /*background-repeat: no-repeat;*/
-    /*background-size: cover;*/
-    /*color: #fff;*/
-    /*padding: 13%;*/
-    /*text-align: center;*/
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    padding: 13%;
+    text-align: center;
 }
 
 .blinker {
@@ -59,6 +59,14 @@
 }
 
 .intro-backdrop {
-    background-color: #000;
-    opacity: 0.5;
+    background-color: #aaaaaa;
+    opacity: 0.6;
+    /*color: white;*/
+    padding: 12%;
+}
+.intro-backdrop p {
+    color: white;
+    font-size: 1.7em;
+    font-family: "Fira Code Retina", fantasy;
+
 }
