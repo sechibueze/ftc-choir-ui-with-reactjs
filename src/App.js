@@ -11,6 +11,8 @@ import Home from "./components/Home/Home";
 import Signup from "./components/Signup/Signup";
 import Login from "./components/Login/Login";
 import Dashboard from './components/Dashboard/dashboard';
+import PersonalInfo from "./components/personalData/personal-info";
+import EditPersonalInfo from "./components/personalData/editPersonalInfo";
 
 import PrivateRoute from "./components/private-route/privateRoute";
 
@@ -40,11 +42,14 @@ class App extends Component {
               <Route path="/" exact component={Home} />
               <Route path="/signup" exact component={Signup} />
               <Route path="/login" exact component={Login}/>
+
             </Router>
           </div>
 
             <Switch>
-                <PrivateRoute exact path="/dashboard" component={Dashboard} />
+                <PrivateRoute path="/dashboard" exact component={Dashboard} />
+                <PrivateRoute path="/personal-info/:id" exact component={PersonalInfo}/>
+                <PrivateRoute path="/edit-personal/:id" exact component={EditPersonalInfo}/>
             </Switch>
         </Provider>
     );

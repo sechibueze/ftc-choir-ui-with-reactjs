@@ -7,8 +7,8 @@ import classnames from 'classnames';
 import "./Signup.css";
 
 class Signup extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       firstname: '',
       lastname: '',
@@ -23,7 +23,7 @@ class Signup extends Component {
   UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({
-        errors: nextProps.errors
+        errors: nextProps.errors,
       });
     }
   }
