@@ -10,7 +10,11 @@ import store from './store';
 import Home from "./components/Home/Home";
 import Signup from "./components/Signup/Signup";
 import Login from "./components/Login/Login";
+
 import Dashboard from './components/Dashboard/dashboard';
+import EditDashboard from "./components/Dashboard/editDashboard";
+import DashboardDetail from './components/Dashboard/dashboardDetail';
+
 import PersonalInfo from "./components/personalData/personal-info";
 import EditPersonalInfo from "./components/personalData/editPersonalInfo";
 
@@ -42,6 +46,7 @@ class App extends Component {
               <Route path="/" exact component={Home} />
               <Route path="/signup" exact component={Signup} />
               <Route path="/login" exact component={Login}/>
+              <Route path="/update-info/:id" exact component={EditDashboard} />
 
             </Router>
           </div>

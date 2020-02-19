@@ -19,50 +19,67 @@ class Dashboard extends Component {
         };
     }
 
+    onLogoutClick = e => {
+      e.preventDefault();
+      this.props.logoutUser();
+    };
+
+
     render() {
         const { user } = this.props.auth;
 
         return (
             <div className="container">
-                <h3>Hello, {user.firstname.split(' ')} {user.lastname} Howdy?</h3>
+
+                <h3>Hello, {user.firstname.split(' ')} {user.lastname.split(" ")} Howdy?</h3>
                 {/*<p>{user.rehearsal_location}, {user.gender}, {user.id}</p>*/}
 
-                <div className="row">
-                    <div className="col-md-12">
-                        <div className="card">
-                            <div className="row">
-                                <div className="col-md-6">
-                                    {user.title}
-                                </div>
-                                <div className="col-md-6">
-                                    {user.email}
-                                </div>
-                            </div>
+                <div className="container mb-4">
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div className="card">
+                                <div className="card-header">General Information</div>
+                                <div className="card-body">
+                                    <div className="row">
+                                        <div className="col-md-6">
+                                            <strong>Title</strong>
+                                            <p>{user.title}</p>
+                                        </div>
+                                        <div className="col-md-6">
+                                            <strong>Email Address</strong>
+                                            <p>{user.email}</p>
+                                        </div>
+                                    </div>
 
-                            <div className="row">
-                                <div className="col-md-6">
-                                    {user.unit_id}
-                                </div>
-                                <div className="col-md-6">
-                                    {user.rehearsal_location}
-                                </div>
-                            </div>
+                                    <div className="row">
+                                        <div className="col-md-6">
 
-                            <div className="row">
-                                <div className="col-md-6">
-                                    {user.vocal_part}
-                                </div>
-                                <div className="col-md-6">
-                                    {user.group}
-                                </div>
-                            </div>
+                                            <strong>Unit ID</strong>
+                                            <p>{user.unit_id}</p>
+                                        </div>
+                                        <div className="col-md-6">
+                                            <strong>Rehearsal Location</strong>
+                                            <p>{user.rehearsal_location}</p>
+                                        </div>
+                                    </div>
 
+                                    <div className="row">
+                                        <div className="col-md-6">
+                                            <strong>Vocal Part</strong>
+                                            <p>{user.vocal_part}</p>
+                                        </div>
+                                        <div className="col-md-6">
+                                            <strong>Group</strong>
+                                            <p>{user.group}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
-
-
-                <div className="container">
+                <div className="container mb-4">
                     <div className="row">
                         <div className="col-md-12">
                             <div className="card">
@@ -73,78 +90,78 @@ class Dashboard extends Component {
                                 <div className="card-body">
                                     <div className="row">
                                         <div className="col-md-3">
-                                            Mobile Number
+                                            <strong>Mobile Number</strong>
                                             <p>{user.phone}</p>
                                         </div>
 
                                         <div className="col-md-3">
-                                            Whatsapp Number
+                                            <strong>Whatsapp Number</strong>
                                             <p>{user.whatsapp_phone}</p>
                                         </div>
 
                                         <div className="col-md-3">
-                                            Email Address
+                                            <strong>Email Address</strong>
                                             <p>{user.email}</p>
                                         </div>
 
                                         <div className="col-md-3">
-                                            Contact Address
+                                            <strong>Contact Address</strong>
                                             <p>{user.contact_address}</p>
                                         </div>
                                     </div>
 
                                     <div className="row mt-5">
                                         <div className="col-md-3">
-                                            PHA
+                                            <strong>PHA</strong>
                                             <p>{user.pha}</p>
                                         </div>
 
                                         <div className="col-md-3">
-                                            DOB
+                                            <strong>Date of Birth (DD/MM)</strong>
                                             <p>{user.dob}</p>
                                         </div>
 
                                         <div className="col-md-3">
-                                            Wedding State
+                                            <strong>Wedding State</strong>
                                             <p>{user.wed_date}</p>
                                         </div>
 
                                         <div className="col-md-3">
-                                            Marital Status
+                                            <strong>Marital Status</strong>
                                             <p>{user.marital_status}</p>
                                         </div>
                                     </div>
 
                                     <div className="row mt-5">
                                         <div className="col-md-3">
-                                            Work Status
+                                            <strong>Work Status</strong>
                                             <p>{user.work_status}</p>
                                         </div>
 
                                         <div className="col-md-3">
-                                            Profession
+                                            <strong>Profession</strong>
                                             <p>{user.profession}</p>
                                         </div>
 
                                         <div className="col-md-3">
-                                            Employer Name
+                                            <strong>Employer Name</strong>
                                             <p>{user.employer_name}</p>
                                         </div>
 
                                         <div className="col-md-3">
-                                            Employer Address
+                                            <strong>Employer Address</strong>
                                             <p>{user.employer_address}</p>
                                         </div>
                                     </div>
 
                                     <div className="row mt-5">
                                         <div className="col-md-3">
-                                            State of Origin
+                                            <strong>State of Origin</strong>
                                             <p>{user.state_origin}</p>
                                         </div>
 
                                         <div className="col-md-3">
-                                            Nationality
+                                            <strong>Nationality</strong>
                                             <p>{user.nationality}</p>
                                         </div>
 
@@ -166,7 +183,7 @@ class Dashboard extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="container">
+                <div className="container mb-4">
                     <div className="row">
                         <div className="col-md-12">
                             <div className="card">
@@ -177,33 +194,33 @@ class Dashboard extends Component {
                                 <div className="card-body">
                                     <div className="row">
                                         <div className="col-md-4">
-                                            Name
+                                            <strong>Name</strong>
                                             <p>{user.nok_name}</p>
                                         </div>
 
                                         <div className="col-md-4">
-                                            Address
+                                            <strong>Address</strong>
                                             <p>{user.nok_address}</p>
                                         </div>
 
                                         <div className="col-md-4">
-                                            Phone
+                                            <strong>Phone</strong>
                                             <p>{user.nok_phone}</p>
                                         </div>
                                     </div>
                                     <div className="row mt-5">
                                         <div className="col-md-4">
-                                            Occupation
+                                            <strong>Occupation</strong>
                                             <p>{user.nok_occupation}</p>
                                         </div>
 
                                         <div className="col-md-4">
-                                            Relation
+                                            <strong>Relation</strong>
                                             <p>{user.nok_occupation}</p>
                                         </div>
 
                                         <div className="col-md-4">
-                                            Email
+                                            <strong>Email</strong>
                                             <p>{user.nok_email}</p>
                                         </div>
                                     </div>
@@ -230,7 +247,7 @@ class Dashboard extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="container">
+                <div className="container mb-4">
                     <div className="row">
                         <div className="col-md-12">
                             <div className="card">
@@ -241,17 +258,17 @@ class Dashboard extends Component {
                                 <div className="card-body">
                                     <div className="row">
                                         <div className="col-md-3">
-                                            Membership Status
+                                            <strong>Membership Status</strong>
                                             <p>{user.membership_status}</p>
                                         </div>
 
                                         <div className="col-md-3">
-                                            Leadership Status
+                                            <strong>Leadership Status</strong>
                                             <p>{user.leadership_status}</p>
                                         </div>
 
                                         <div className="col-md-3">
-                                            Sub group
+                                            <strong>Sub group</strong>
                                             <p>{user.sub_group}</p>
                                         </div>
 
@@ -270,7 +287,7 @@ class Dashboard extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="container">
+                <div className="container mb-4">
                     <div className="row">
                         <div className="col-md-12">
                             <div className="card">
@@ -281,51 +298,51 @@ class Dashboard extends Component {
                                 <div className="card-body">
                                     <div className="row">
                                         <div className="col-md-4">
-                                            WSF Status
+                                            <strong>WSF Status</strong>
                                             <p>{user.wsf_status}</p>
                                         </div>
 
                                         <div className="col-md-4">
-                                            New Birth Year
+                                            <strong>New Birth Year</strong>
                                             <p>{user.new_birth_year}</p>
                                         </div>
 
                                         <div className="col-md-4">
-                                            Holy Spirit Year
+                                            <strong>Holy Spirit Year</strong>
                                             <p>{user.holy_spirit_year}</p>
                                         </div>
                                     </div>
 
                                     <div className="row mt-5">
                                         <div className="col-md-4">
-                                            LFC Joined year
+                                            <strong>LFC Joined year</strong>
                                             <p>{user.lfc_joined_year}</p>
                                         </div>
 
                                         <div className="col-md-4">
-                                            Ordination year
+                                            <strong>Ordination year</strong>
                                             <p>{user.ordination_year}</p>
                                         </div>
 
                                         <div className="col-md-4">
-                                            Province
+                                            <strong>Province</strong>
                                             <p>{user.province}</p>
                                         </div>
                                     </div>
 
                                     <div className="row mt-5">
                                         <div className="col-md-4">
-                                            District
+                                            <strong>District</strong>
                                             <p>{user.district}</p>
                                         </div>
 
                                         <div className="col-md-4">
-                                            Zone
+                                            <strong>Zone</strong>
                                             <p>{user.zone}</p>
                                         </div>
 
                                         <div className="col-md-4">
-                                            <Link to={"/"} className="btn btn-secondary">
+                                            <Link to={`/update-info/${user.id}`} className="btn btn-secondary">
                                                 Update Info
                                             </Link>
                                         </div>
@@ -333,7 +350,15 @@ class Dashboard extends Component {
                                 </div>
 
                                 <div className="card-footer">
-
+                                    <div className="row">
+                                        <div className="col-md-6">
+                                            <button
+                                                onClick={this.onLogoutClick}
+                                                className="btn btn-outline-danger d-block">
+                                                Log out
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
