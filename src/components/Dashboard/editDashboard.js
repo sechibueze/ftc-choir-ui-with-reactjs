@@ -179,13 +179,18 @@ class EditDashboard extends Component {
                                     <div className="row">
                                         <div className="col-md-6">
                                             <label htmlFor="title">Title</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
+                                            <select
+                                                className="custom-select"
                                                 name="title"
                                                 value={this.state.title}
                                                 onChange={this.onChange}
-                                            />
+                                            >
+                                                <option value="Dncs.">Dncs.</option>
+                                                <option value="Mr.">Mr.</option>
+                                                <option value="Mrs.">Mrs.</option>
+                                                <option value="Dncs.">Dcns.</option>
+                                                <option value="Pst.">Pst.</option>
+                                            </select>
                                         </div>
                                         <div className="col-md-6">
                                             <label htmlFor="email">Email Address</label>
@@ -213,26 +218,36 @@ class EditDashboard extends Component {
                                         </div>
                                         <div className="col-md-6">
                                             <label htmlFor="rehearsal_location">Rehearsal Location</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
+                                            <select
+                                                className="custom-select"
                                                 name="rehearsal_location"
                                                 value={this.state.rehearsal_location}
                                                 onChange={this.onChange}
-                                            />
+                                            >
+                                                <option value="Canaanland">Canaanland</option>
+                                                <option value="Raji Oba">Raji Oba</option>
+                                                <option value="Ikoyi">Ikoyi</option>
+                                                <option value="Oregun">Oregun</option>
+                                                <option value="Festac">Festac</option>
+                                                <option value="Iyana Ishasi 1008">Iyana Ishasi 1008</option>
+                                            </select>
                                         </div>
                                     </div>
 
                                     <div className="row">
                                         <div className="col-md-6">
                                             <label htmlFor="vocal_part">Vocal Part</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
+                                            <select
+                                                className="custom-select"
                                                 name="vocal_part"
                                                 value={this.state.vocal_part}
                                                 onChange={this.onChange}
-                                            />
+                                            >
+                                                <option value="Soprano">Soprano</option>
+                                                <option value="Alto">Alto</option>
+                                                <option value="Tenor">Tenor</option>
+                                                <option value="Musician">Musician</option>
+                                            </select>
                                         </div>
                                         <div className="col-md-6">
                                             <label htmlFor="group">Group</label>
@@ -342,26 +357,36 @@ class EditDashboard extends Component {
 
                                         <div className="col-md-3">
                                             <label htmlFor="marital_status">Marital Status</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
+                                            <select
+                                                className="custom-select"
                                                 name="marital_status"
                                                 value={this.state.marital_status}
                                                 onChange={this.onChange}
-                                            />
+                                            >
+                                                <option value="Single">Single</option>
+                                                <option value="In a Relationship">In a Relationship</option>
+                                                <option value="Engaged">Engaged</option>
+                                                <option value="Married">Married</option>
+                                                <option value="Separated">Separated</option>
+                                                <option value="Divorced">Divorced</option>
+                                                <option value="Widowed">Widowed</option>
+                                            </select>
                                         </div>
                                     </div>
 
                                     <div className="row mt-5">
                                         <div className="col-md-3">
                                             <label htmlFor="work_status">Work Status</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
+                                            <select
+                                                className="custom-select"
                                                 name="work_status"
                                                 value={this.state.work_status}
                                                 onChange={this.onChange}
-                                            />
+                                            >
+                                                <option>Seeking Employment</option>
+                                                <option>Employed</option>
+                                                <option>Self Employed</option>
+                                            </select>
                                         </div>
 
                                         <div className="col-md-3">
@@ -495,13 +520,19 @@ class EditDashboard extends Component {
 
                                         <div className="col-md-4">
                                             <label htmlFor="nok_relation">Relation</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
+                                            <select
+                                                className="custom-select"
                                                 name="nok_relation"
                                                 value={this.state.nok_relation}
                                                 onChange={this.onChange}
-                                            />
+                                            >
+                                                <option value="Spouse">Spouse</option>
+                                                <option value="Parent">Parent</option>
+                                                <option value="Sibling">Sibling</option>
+                                                <option value="Relative">Relative</option>
+                                                <option value="Mentor">Mentor</option>
+                                                <option value="Protege">Protege</option>
+                                            </select>
                                         </div>
 
                                         <div className="col-md-4">
@@ -547,35 +578,57 @@ class EditDashboard extends Component {
                                     <div className="row">
                                         <div className="col-md-3">
                                             <label htmlFor="membership_status">Membership Status</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
+                                            <select
+                                                className="custom-select"
                                                 name="membership_status"
                                                 value={this.state.membership_status}
                                                 onChange={this.onChange}
-                                            />
+                                            >
+                                                <option>Member</option>
+                                                <option>Ordained worker</option>
+                                                <option>Pastorate</option>
+                                            </select>
                                         </div>
 
                                         <div className="col-md-3">
                                             <label htmlFor="leadership_status">Leadership Status</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
+                                            <select
+                                                className="custom-select"
                                                 name="leadership_status"
                                                 value={this.state.leadership_status}
                                                 onChange={this.onChange}
-                                            />
+                                            >
+                                                <option value="Choir Master">Choir Master</option>
+                                                <option value="Asst. Choir Master">Asst. Choir Master</option>
+                                                <option value="Choir Secretary">Choir Secretary</option>
+                                                <option value="Asst. Choir Secretary">Asst. Choir Secretary</option>
+                                                <option value="Song Teacher">Song Teacher</option>
+                                                <option value="Part Head">Part Head</option>
+                                                <option value="Head of Musician">Head of Musician</option>
+                                                <option value="Group Leader">Group Leader</option>
+                                                <option value="Group Secretary">Group Secretary</option>
+                                                <option value="Chorister">Chorister</option>
+                                            </select>
                                         </div>
 
                                         <div className="col-md-7">
                                             <label htmlFor="sub_group">Sub Group</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
+                                            <select
+                                                className="custom-select"
                                                 name="sub_group"
                                                 value={this.state.sub_group}
                                                 onChange={this.onChange}
-                                            />
+                                            >
+                                                <option value="Music Team">Music Team</option>
+                                                <option value="Praise Team">Praise Team</option>
+                                                <option value="Medical Team">Medical Team</option>
+                                                <option value="Technical Unit">Technical Unit</option>
+                                                <option value="Royal Apparel">Royal Apparel</option>
+                                                <option value="FTC Secretariat/Protocol">FTC Secretariat / Protocol</option>
+                                                <option value="Covenant Partner">Covenant Partner</option>
+                                                <option value="Legal Team">Legal Team</option>
+                                                <option value="Welfare Team">Welfare Team</option>
+                                            </select>
                                         </div>
 
                                         <div className="col-md-4">
@@ -602,19 +655,30 @@ class EditDashboard extends Component {
                                     <div className="row">
                                         <div className="col-md-4">
                                             <label htmlFor="wsf_status">WSF Status</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
+                                            <select
+                                                className="custom-select"
                                                 name="wsf_status"
                                                 value={this.state.wsf_status}
                                                 onChange={this.onChange}
-                                            />
+                                            >
+                                                <option value="Provincial Pastor">Provincial Pastor</option>
+                                                <option value="District Pastor">District Pastor</option>
+                                                <option value="Home Provider">Home Provider</option>
+                                                <option value="Cell Minister">Cell Minister</option>
+                                                <option value="Asst. Cell Minister">Asst. Cell Minister</option>
+                                                <option value="Cell Secretary">Cell Secretary</option>
+                                                <option value="Zonal Minister">Zonal Minister</option>
+                                                <option value="Asst. Zonal Minister">Asst. Zonal Minister</option>
+                                                <option value="Chairman (Zonal Council)">Chairman (Zonal Council)</option>
+                                                <option value="Asst. Chairman (Zonal Council)">Asst. Chairman (Zonal Council)</option>
+                                                <option value="Secretary (Zonal Council)">Secretary (Zonal Council)</option>
+                                            </select>
                                         </div>
 
                                         <div className="col-md-4">
                                             <label htmlFor="new_birth_year">New Birth Year</label>
                                             <input
-                                                type="text"
+                                                type="date"
                                                 className="form-control"
                                                 name="new_birth_year"
                                                 value={this.state.new_birth_year}
