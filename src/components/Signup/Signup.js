@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { registerUser } from '../../actions/authAction';
 import classnames from 'classnames';
 import "./Signup.css";
+import ftc_logo from '../../images/ftc-logo.png';
 
 class Signup extends Component {
   constructor() {
@@ -59,7 +60,7 @@ class Signup extends Component {
           <div className="col-xs-12 col-sm-8 col-md-12 col-sm-offset-2 col-md-offset-3 card">
             <div className="row">
               <div className="col-md-12">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQR7Nzcy54zeh5xoeGjU5vUIvsvdcmbnXvarGoG5uSKNcNwbBKE" alt="ft-logo" className="mx-auto d-block img-fluid" />
+                <img src={ftc_logo} alt="ft-logo" className="mx-auto d-block img-fluid" />
                 <h3 className="text-center text-black-50">Faith Tabernacle Choir</h3>
                 <p className="text-center">Fill the following information to register into the directory</p>
               </div>
@@ -69,6 +70,10 @@ class Signup extends Component {
               <div className="row">
                 <div className="col-xs-12 col-sm-6 col-md-6">
                   <div className="form-group">
+                    <div className="input-group">
+                      <div className="input-group-prepend">
+                        <span className="input-group-text" id="basic-addon1"><i className="fa fa-user"/></span>
+                      </div>
                     <input
                       onChange={this.onChange}
                       value={this.state.firstname}
@@ -80,12 +85,16 @@ class Signup extends Component {
                         invalid: errors.firstname,
                       })}
                     />
-
                     <span className="text-danger">{errors.firstname}</span>
+                    </div>
                   </div>
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-6">
                   <div className="form-group">
+                    <div className="input-group">
+                      <div className="input-group-prepend">
+                        <span className="input-group-text"><i className="fa fa-user"/> </span>
+                      </div>
                     <input
                       onChange={this.onChange}
                       value={this.state.lastname}
@@ -98,40 +107,61 @@ class Signup extends Component {
                       })}
                     />
                     <span className="text-danger">{errors.lastname}</span>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="form-group">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.email}
-                  error={errors.email}
-                  id="email"
-                  type="email"
-                  placeholder="Email Address"
-                  className={classnames("form-control", {
-                    invalid: errors.email,
-                  })}
-                />
-                <span className="text-danger">{errors.email}</span>
-              </div>
-              <div className="form-group">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.phone}
-                  error={errors.phone}
-                  id="phone"
-                  type="tel"
-                  placeholder="Mobile Number"
-                  className={classnames("form-control", {
-                    invalid: errors.phone,
-                  })}
-                />
-                <span className="text-danger">{errors.phone}</span>
+              <div className="row">
+                  <div className="col-xs-12 col-sm-6 col-md-6">
+                    <div className="form-group">
+                  <div className="input-group">
+                    <div className="input-group-prepend">
+                      <span className="input-group-text"><i className="fa fa-inbox"/> </span>
+                    </div>
+                  <input
+                    onChange={this.onChange}
+                    value={this.state.email}
+                    error={errors.email}
+                    id="email"
+                    type="email"
+                    placeholder="Email Address"
+                    className={classnames("form-control", {
+                      invalid: errors.email,
+                    })}
+                  />
+                  <span className="text-danger">{errors.email}</span>
+                  </div>
+                </div>
+                  </div>
+                  <div className="col-xs-12 col-sm-6 col-md-6">
+                    <div className="form-group">
+                  <div className="input-group">
+                    <div className="input-group-prepend">
+                      <span className="input-group-text"><i className="fa fa-phone"/> </span>
+                    </div>
+                  <input
+                    onChange={this.onChange}
+                    value={this.state.phone}
+                    error={errors.phone}
+                    id="phone"
+                    type="tel"
+                    placeholder="Mobile Number"
+                    className={classnames("form-control", {
+                      invalid: errors.phone,
+                    })}
+                  />
+                  <span className="text-danger">{errors.phone}</span>
+                  </div>
+                </div>
+                  </div>
               </div>
               <div className="row">
                 <div className="col-xs-12 col-sm-6 col-md-6">
                   <div className="form-group">
+                    <div className="input-group">
+                      <div className="input-group-prepend">
+                        <span className="input-group-text"><i className="fa fa-user-secret"/> </span>
+                      </div>
                     <input
                       onChange={this.onChange}
                       value={this.state.password}
@@ -144,10 +174,16 @@ class Signup extends Component {
                       })}
                     />
                     <span className="text-danger">{errors.password}</span>
+                    </div>
                   </div>
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-6">
                   <div className="form-group">
+                    <div className="input-group">
+                      <div className="input-group-prepend">
+                        <span className="input-group-text"><i className="fa fa-user-secret"/> </span>
+                      </div>
+
                     <input
                       onChange={this.onChange}
                       value={this.state.password2}
@@ -160,54 +196,25 @@ class Signup extends Component {
                       })}
                     />
                     <span className="text-danger">{errors.password2}</span>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-xs-4 col-sm-3 col-md-3">
-                  <span className="button-checkbox">
-                    <button
-                      type="button"
-                      className="btn btn-info"
-                      data-color="info"
-                      tabIndex="7"
-                    >
-                      I Agree
-                    </button>
-                    <input
-                      type="checkbox"
-                      name="t_and_c"
-                      id="t_and_c"
-                      className="hidden"
-                      value="1"
-                    />
-                  </span>
-                </div>
-                <div className="col-xs-8 col-sm-9 col-md-9">
-                  By clicking{" "}
-                  <strong className="label label-primary">Register</strong>, you
-                  agree to the{" "}
-                  <a href="#" data-toggle="modal" data-target="#t_and_c_m">
-                    Terms and Conditions
-                  </a>{" "}
-                  set out by this site, including our Cookie Use.
                 </div>
               </div>
 
               <hr className="colorgraph" />
               <div className="row">
                 <div className="col-xs-12 col-md-6">
-                  <input
+                  <button
                     type="submit"
-                    value="Register"
                     className="btn btn-primary btn-block btn-lg"
-                    tabIndex="7"
-                  />
+                  >
+                    Register
+                  </button>
                 </div>
                 <div className="col-xs-12 col-md-6">
-                  <a href="#" className="btn btn-success btn-block btn-lg">
+                  <Link to="/login" className="btn btn-success btn-block btn-lg">
                     Sign In
-                  </a>
+                  </Link>
                 </div>
               </div>
             </form>

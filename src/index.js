@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import $ from 'jquery';
+import $ from 'jquery';
 // import Popper from 'popper.js';
 // import './fontawesome-free-5.8.1-web/css/all.css'
 import ReactDOM from 'react-dom';

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loginUser } from '../../actions/authAction';
 import classnames from 'classnames';
+import ftc_logo from '../../images/ftc-logo.png';
 import './LoginStyle.css';
 
 class Login extends Component {
@@ -57,7 +58,7 @@ class Login extends Component {
             <div className="row">
               <div className="col-md-12">
                 <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQR7Nzcy54zeh5xoeGjU5vUIvsvdcmbnXvarGoG5uSKNcNwbBKE"
+                  src={ftc_logo}
                   alt="ft-logo"
                   className="mx-auto d-block img-fluid"
                 />

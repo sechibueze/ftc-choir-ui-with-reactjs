@@ -12,12 +12,6 @@ import ChurchInfo from "../infoData/church-info";
 import {Link} from "react-router-dom";
 
 class Dashboard extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            user: [],
-        };
-    }
 
     onLogoutClick = e => {
       e.preventDefault();
@@ -31,7 +25,7 @@ class Dashboard extends Component {
         return (
             <div className="container">
 
-                <h3>Hello, {user.firstname.split(' ')} {user.lastname.split(" ")} Howdy?</h3>
+                <h3>Hello, {user.firstname.split(' ')} {user.lastname.split(" ")}</h3>
                 {/*<p>{user.rehearsal_location}, {user.gender}, {user.id}</p>*/}
 
                 <div className="container mb-4">
