@@ -23,13 +23,13 @@ class Navbar extends Component {
 
                         <ul className="navbar-nav">
                             <li className="nav-item active">
-                                <Link className="nav-link btn-outline-success d-block" to="/signup">
-                                    Signup
+                                <Link className="nav-link" to="/signup">
+                                    <button className="btn-outline-success d-block">Signup</button>
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link btn-outline-primary d-block" to="/login">
-                                    Login
+                                <Link className="nav-link" to="/login">
+                                    <button className="btn-outline-primary d-block">Login</button>
                                 </Link>
                             </li>
                         </ul>

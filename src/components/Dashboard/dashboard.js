@@ -10,8 +10,33 @@ import NokInfo from "../nokData/nok-info";
 import ChoirRole from "../roleData/choir-role";
 import ChurchInfo from "../infoData/church-info";
 import {Link} from "react-router-dom";
+import $ from 'jquery';
 
 class Dashboard extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { user: [] };
+    }
+
+    componentDidMount() {
+        $(document).on("click", ".browse", function() {
+            var file = $(this).parents().find(".file");
+            file.trigger("click");
+        });
+        $('input[type="file"]').change(function(e) {
+            var fileName = e.target.files[0].name;
+            $("#file").val(fileName);
+
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                // get loaded data and render thumbnail.
+                document.getElementById("preview").src = e.target.result;
+            };
+            // read the image file as a data URL.
+            reader.readAsDataURL(this.files[0]);
+        });
+
+    }
 
     onLogoutClick = e => {
       e.preventDefault();
@@ -24,9 +49,31 @@ class Dashboard extends Component {
 
         return (
             <div className="container">
-
-                <h3>Hello, {user.firstname.split(' ')} {user.lastname.split(" ")}</h3>
-                {/*<p>{user.rehearsal_location}, {user.gender}, {user.id}</p>*/}
+                <div className="row">
+                    <div className="col-md-12">
+                        <div className="card-header">
+                            <h3>Hello, {user.firstname.split(' ')} {user.lastname.split(" ")}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-md-6">
+                        <img src="https://placehold.it/120x120" id="preview" className="img-thumbnail img-radius" alt="profileImg"/>
+                    </div>
+                    <div className="col-md-6">
+                        <div id="msg"/>
+                        <form method="post" id="image-form">
+                            <input type="file" name="img[]" className="file" accept="image/*"/>
+                                <div className="input-group my-3">
+                                    <input type="text" className="form-control" disabled placeholder="Upload File"
+                                           id="file"/>
+                                        <div className="input-group-append">
+                                            <button type="button" className="browse btn btn-primary">Browse...</button>
+                                        </div>
+                                </div>
+                        </form>
+                    </div>
+                </div>
 
                 <div className="container mb-4">
                     <div className="row">
@@ -38,6 +85,7 @@ class Dashboard extends Component {
                                         <div className="col-md-6">
                                             <strong>Title</strong>
                                             <p>{user.title}</p>
+                                            <p>{this.props.match.title}</p>
                                         </div>
                                         <div className="col-md-6">
                                             <strong>Email Address</strong>
@@ -99,14 +147,14 @@ class Dashboard extends Component {
                                         </div>
 
                                         <div className="col-md-3">
-                                            <strong>Contact Address</strong>
+                                            <strong>Current Residential Address</strong>
                                             <p>{user.contact_address}</p>
                                         </div>
                                     </div>
 
                                     <div className="row mt-5">
                                         <div className="col-md-3">
-                                            <strong>PHA</strong>
+                                            <strong>Permanent Home Address</strong>
                                             <p>{user.pha}</p>
                                         </div>
 
@@ -116,7 +164,7 @@ class Dashboard extends Component {
                                         </div>
 
                                         <div className="col-md-3">
-                                            <strong>Wedding State</strong>
+                                            <strong>Wedding Date</strong>
                                             <p>{user.wed_date}</p>
                                         </div>
 
@@ -128,22 +176,23 @@ class Dashboard extends Component {
 
                                     <div className="row mt-5">
                                         <div className="col-md-3">
-                                            <strong>Work Status</strong>
+                                            <strong>Employment Status</strong>
                                             <p>{user.work_status}</p>
                                         </div>
 
                                         <div className="col-md-3">
-                                            <strong>Profession</strong>
+                                            <strong>Profession / Occupation</strong>
                                             <p>{user.profession}</p>
                                         </div>
 
                                         <div className="col-md-3">
-                                            <strong>Employer Name</strong>
+                                            <strong>Employer's Name</strong>
                                             <p>{user.employer_name}</p>
                                         </div>
 
                                         <div className="col-md-3">
-                                            <strong>Employer Address</strong>
+                                            <strong>Employer's Contact</strong>
+                                            <p className="text-black-50">Preferably Mobile number</p>
                                             <p>{user.employer_address}</p>
                                         </div>
                                     </div>
@@ -182,7 +231,7 @@ class Dashboard extends Component {
                         <div className="col-md-12">
                             <div className="card">
                                 <div className="card-header nok-header">
-                                    NOK
+                                    Next of Kin Information
                                 </div>
 
                                 <div className="card-body">

@@ -10,7 +10,7 @@ class Footer extends Component {
                         <div className="row">
                             <div className="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
                                 <p>Faith Tabernacle Choir Directory...</p>
-                                <p className="h6">&copy All right Reversed. By ICTG</p>
+                                <p className="h6">(c) All right Reserved. By ICTGroup</p>
                             </div>
                         </div>
                         <hr/>

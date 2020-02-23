@@ -251,13 +251,64 @@ class EditDashboard extends Component {
                                         </div>
                                         <div className="col-md-6">
                                             <label htmlFor="group">Group</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
+                                            <select
+                                                className="custom-select"
                                                 name="group"
                                                 value={this.state.group}
                                                 onChange={this.onChange}
-                                            />
+                                            >
+                                                <option value="Group 1">Group 1</option>
+                                                <option value="Group 2">Group 2</option>
+                                                <option value="Group 3">Group 3</option>
+                                                <option value="Group 4">Group 4</option>
+                                                <option value="Group 5">Group 5</option>
+                                                <option value="Group 6">Group 6</option>
+                                                <option value="Group 7">Group 7</option>
+                                                <option value="Group 8">Group 8</option>
+                                                <option value="Group 9">Group 9</option>
+                                                <option value="Group 10">Group 10</option>
+                                                <option value="Group 11">Group 11</option>
+                                                <option value="Group 12">Group 12</option>
+                                                <option value="Group 13">Group 13</option>
+                                                <option value="Group 14">Group 14</option>
+                                                <option value="Group 15">Group 15</option>
+                                                <option value="Group 16">Group 16</option>
+                                                <option value="Group 17">Group 17</option>
+                                                <option value="Group 18">Group 18</option>
+                                                <option value="Group 19">Group 19</option>
+                                                <option value="Group 20">Group 20</option>
+                                                <option value="Group 21">Group 21</option>
+                                                <option value="Group 22">Group 22</option>
+                                                <option value="Group 23">Group 23</option>
+                                                <option value="Group 24">Group 24</option>
+                                                <option value="Group 25">Group 25</option>
+                                                <option value="Group 26">Group 26</option>
+                                                <option value="Group 27">Group 27</option>
+                                                <option value="Group 28">Group 28</option>
+                                                <option value="Group 29">Group 29</option>
+                                                <option value="Group 30">Group 30</option>
+                                                <option value="Group 31">Group 31</option>
+                                                <option value="Group 32">Group 32</option>
+                                                <option value="Group 33">Group 33</option>
+                                                <option value="Group 34">Group 34</option>
+                                                <option value="Group 35">Group 35</option>
+                                                <option value="Group 36">Group 36</option>
+                                                <option value="Group 37">Group 37</option>
+                                                <option value="Group 38">Group 38</option>
+                                                <option value="Group 39">Group 39</option>
+                                                <option value="Group 40">Group 40</option>
+                                                <option value="Group 41">Group 41</option>
+                                                <option value="Group 42">Group 42</option>
+                                                <option value="Group 43">Group 43</option>
+                                                <option value="Group 44">Group 44</option>
+                                                <option value="Group 45">Group 45</option>
+                                                <option value="Group 46">Group 46</option>
+                                                <option value="Group 47">Group 47</option>
+                                                <option value="Group 48">Group 48</option>
+                                                <option value="Group 49">Group 49</option>
+                                                <option value="Group 50">Group 50</option>
+                                                <option value="Group 51">Group 51</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -310,7 +361,7 @@ class EditDashboard extends Component {
                                         </div>
 
                                         <div className="col-md-3">
-                                            <label htmlFor="contact_address">Contact Address</label>
+                                            <label htmlFor="contact_address">Residential Address</label>
                                             <input
                                                 type="text"
                                                 className="form-control"
@@ -323,7 +374,7 @@ class EditDashboard extends Component {
 
                                     <div className="row mt-5">
                                         <div className="col-md-3">
-                                            <label htmlFor="pha">PHA</label>
+                                            <label htmlFor="pha">Permanent Home Address</label>
                                             <input
                                                 type="text"
                                                 className="form-control"
@@ -336,7 +387,7 @@ class EditDashboard extends Component {
                                         <div className="col-md-3">
                                             <label htmlFor="dob">Date of Birth</label>
                                             <input
-                                                type="text"
+                                                type="date"
                                                 className="form-control"
                                                 name="dob"
                                                 value={this.state.dob}
@@ -345,9 +396,9 @@ class EditDashboard extends Component {
                                         </div>
 
                                         <div className="col-md-3">
-                                            <label htmlFor="wed_date">Wedding Date</label>
+                                            <label htmlFor="wed_date">Wedding Date/Anniversary</label>
                                             <input
-                                                type="text"
+                                                type="date"
                                                 className="form-control"
                                                 name="wed_date"
                                                 value={this.state.wed_date}
@@ -376,7 +427,7 @@ class EditDashboard extends Component {
 
                                     <div className="row mt-5">
                                         <div className="col-md-3">
-                                            <label htmlFor="work_status">Work Status</label>
+                                            <label htmlFor="work_status">Employment Status</label>
                                             <select
                                                 className="custom-select"
                                                 name="work_status"
@@ -390,7 +441,7 @@ class EditDashboard extends Component {
                                         </div>
 
                                         <div className="col-md-3">
-                                            <label htmlFor="profession">Profession</label>
+                                            <label htmlFor="profession">Profession/Ocupation</label>
                                             <input
                                                 type="text"
                                                 className="form-control"
@@ -401,7 +452,7 @@ class EditDashboard extends Component {
                                         </div>
 
                                         <div className="col-md-3">
-                                            <label htmlFor="employer_name">Employer Name</label>
+                                            <label htmlFor="employer_name">Employer's Name</label>
                                             <input
                                                 type="text"
                                                 className="form-control"
@@ -412,7 +463,7 @@ class EditDashboard extends Component {
                                         </div>
 
                                         <div className="col-md-3">
-                                            <label htmlFor="employer_address">Employer Address</label>
+                                            <label htmlFor="employer_address">Employer's Address</label>
                                             <input
                                                 type="text"
                                                 className="form-control"
@@ -468,7 +519,7 @@ class EditDashboard extends Component {
                         <div className="col-md-12">
                             <div className="card">
                                 <div className="card-header nok-header">
-                                    NOK
+                                    Next of Kin Information
                                 </div>
 
                                 <div className="card-body">
@@ -689,7 +740,7 @@ class EditDashboard extends Component {
                                         <div className="col-md-4">
                                             <label htmlFor="holy_spirit_year">Holy Spirit Year</label>
                                             <input
-                                                type="text"
+                                                type="date"
                                                 className="form-control"
                                                 name="holy_spirit_year"
                                                 value={this.state.holy_spirit_year}
@@ -702,7 +753,7 @@ class EditDashboard extends Component {
                                         <div className="col-md-4">
                                             <label htmlFor="lfc_joined_year">LFC Joined year</label>
                                             <input
-                                                type="text"
+                                                type="date"
                                                 className="form-control"
                                                 name="lfc_joined_year"
                                                 value={this.state.lfc_joined_year}
@@ -713,7 +764,7 @@ class EditDashboard extends Component {
                                         <div className="col-md-4">
                                             <label htmlFor="ordination_year">Ordination Year</label>
                                             <input
-                                                type="text"
+                                                type="date"
                                                 className="form-control"
                                                 name="ordination_year"
                                                 value={this.state.ordination_year}
@@ -756,10 +807,10 @@ class EditDashboard extends Component {
                                             />
                                         </div>
 
-                                        <div className="col-md-4">
+                                        <div className="col-md-4 ">
                                             <button
                                                 type="submit"
-                                                className="btn btn-success btn-lg d-block">Save Info</button>
+                                                className="btn btn-outline-success btn-lg d-block">Save Info</button>
                                         </div>
                                     </div>
                                 </div>
