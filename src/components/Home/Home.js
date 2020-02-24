@@ -14,12 +14,20 @@ class Home extends Component {
             <div className="col-md-12">
               <div className="row">
                 <div className="col-md-12">
-
                   <h2 className="text-center">
                     <p className="">Faith Tabernacle Choir Directory <span className="blinker">.</span></p>
                   </h2>
                 </div>
               </div>
+
+                <div className="row">
+                    <div className="col-md-6">
+                        <Link to="/login" className="btn-info btn-lg d-block text-uppercase">Login</Link>
+                    </div>
+                    <div className="col-md-6">
+                        <Link to="/signup" className="btn-success btn-lg d-block text-uppercase">Sign-up</Link>
+                    </div>
+                </div>
             </div>
           </div>
 

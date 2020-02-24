@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import './navbar.css';
 import ftc_logo from '../../../images/ftc-logo.png';
+import $ from 'jquery';
 
 class Navbar extends Component {
     render() {
@@ -24,12 +25,12 @@ class Navbar extends Component {
                         <ul className="navbar-nav">
                             <li className="nav-item active">
                                 <Link className="nav-link" to="/signup">
-                                    <button className="btn-outline-success d-block">Signup</button>
+                                    <button className="btn-outline-success d-block btn-lg text-uppercase">Signup</button>
                                 </Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/login">
-                                    <button className="btn-outline-primary d-block">Login</button>
+                                    <button className="btn-outline-primary d-block btn-lg text-uppercase login-btn">Login</button>
                                 </Link>
                             </li>
                         </ul>
