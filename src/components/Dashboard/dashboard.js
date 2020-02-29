@@ -11,6 +11,7 @@ import ChoirRole from "../roleData/choir-role";
 import ChurchInfo from "../infoData/church-info";
 import {Link} from "react-router-dom";
 import $ from 'jquery';
+import FilesUpload from "../file-upload/file-upload";
 
 class Dashboard extends Component {
     constructor(props) {
@@ -56,24 +57,8 @@ class Dashboard extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col-md-6">
-                        <img src="https://placehold.it/120x120" id="preview" className="img-thumbnail img-radius" alt="profileImg"/>
-                    </div>
-                    <div className="col-md-6">
-                        <div id="msg"/>
-                        <form method="post" id="image-form">
-                            <input type="file" name="img[]" className="file" accept="image/*"/>
-                                <div className="input-group my-3">
-                                    <input type="text" className="form-control" disabled placeholder="Upload File"
-                                           id="file"/>
-                                        <div className="input-group-append">
-                                            <button type="button" className="browse btn btn-primary">Browse...</button>
-                                        </div>
-                                </div>
-                        </form>
-                    </div>
-                </div>
+
+                <FilesUpload/>
 
                 <div className="container mb-4">
                     <div className="row">
