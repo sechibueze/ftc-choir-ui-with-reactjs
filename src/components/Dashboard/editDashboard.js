@@ -46,13 +46,17 @@ class EditDashboard extends Component {
             ordination_year: '',
             province: '',
             district: '',
-            zone: '',
+            zone: ''
         };
     }
 
     componentDidMount() {
+        console.log('props:: user id', this.props.match.params.id);
+        const url = `https://ftc-api.herokuapp.com/api/users/detail/${this.props.match.params.id}`;
+        console.log('Update url:', url);
         axios
-            .get('https://ftc-api.herokuapp.com/api/users/detail/' + this.props.match.params.id)
+            // .get('https://ftc-api.herokuapp.com/api/users/detail/' + this.props.match.params.id)
+            .get(url)
             .then( response => {
                 this.setState({
                     unit_id: response.data.unit_id,
@@ -93,7 +97,7 @@ class EditDashboard extends Component {
                     ordination_year: response.data.ordination_year,
                     province: response.data.province,
                     district: response.data.district,
-                    zone: response.data.zone,
+                    zone: response.data.zone
 
                 });
             })
@@ -153,8 +157,12 @@ class EditDashboard extends Component {
 
         axios
             .put('https://ftc-api.herokuapp.com/api/users/update/' + this.props.match.params.id, data)
+            // .put('http://localhost:5000/api/users/update/' + this.props.match.params.id, data)
             .then( res => {
-                this.props.history.push('/dashboard')
+                //Update this.props.auth
+                console.log('Editcomponent:: updated User data :', res.data);
+                //dispact action
+                this.props.history.push('/show-detail/' + this.props.match.params.id)
             })
             .catch(err => {
                 console.log('Error in update infos')

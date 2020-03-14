@@ -47,10 +47,11 @@ class App extends Component {
               <Route path="/signup" exact component={Signup} />
               <Route path="/login" exact component={Login}/>
               <Route path="/update-info/:id" exact component={EditDashboard} />
-
+              <Route path="/show-detail/:id" exact component={DashboardDetail}/>
+                <Route path="/dashboard" exact component={Dashboard} />
 
                 <Switch>
-                    <PrivateRoute path="/dashboard" exact component={Dashboard} />
+                    {/*<PrivateRoute path="/dashboard" exact component={Dashboard} />*/}
                     {/*<PrivateRoute path="/personal-info/:id" exact component={PersonalInfo}/>*/}
                     {/*<PrivateRoute path="/edit-personal/:id" exact component={EditPersonalInfo}/>*/}
                 </Switch>

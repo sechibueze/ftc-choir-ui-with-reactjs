@@ -16,7 +16,8 @@ import FilesUpload from "../file-upload/file-upload";
 class Dashboard extends Component {
     constructor(props) {
         super(props);
-        this.state = { user: [] };
+        this.state = {
+            users: {},  };
     }
 
     componentDidMount() {
@@ -47,6 +48,7 @@ class Dashboard extends Component {
 
     render() {
         const { user } = this.props.auth;
+        console.log('Dashboard:: User  data:: props', this.props);
 
         return (
             <div className="container">
@@ -58,7 +60,7 @@ class Dashboard extends Component {
                     </div>
                 </div>
 
-                <FilesUpload/>
+                {/*<FilesUpload/>*/}
 
                 <div className="container mb-4">
                     <div className="row">
@@ -370,7 +372,7 @@ class Dashboard extends Component {
                                         </div>
 
                                         <div className="col-md-4">
-                                            <Link to={`/update-info/${user.id}`} className="btn btn-secondary">
+                                            <Link to={`/update-info/${this.props.auth.user.id}`} className="btn btn-secondary">
                                                 Update Info
                                             </Link>
                                         </div>

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import jwt_decode from 'jwt-decode';
 // import profileImg from 'res';
 
 class FilesUpload extends Component {
@@ -10,9 +11,19 @@ class FilesUpload extends Component {
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
+            user: {},
             profileImg: ''
         }
     }
+
+    componentDidMount(){
+        // axios.get(`https://nfile-upload-api.herokuapp.com/api/${props.match.id}`)
+        const userToken = localStorage.getItem('jwtToken');
+        const user = jwt_decode(userToken);
+        localStorage.setItem('user', user);
+        console.log('logged in user save in localStorage', user.email)
+    }
+
 
     onFileChange(e) {
         this.setState({
@@ -24,6 +35,11 @@ class FilesUpload extends Component {
         e.preventDefault();
         const formData = new FormData();
         formData.append('profileImg', this.state.profileImg);
+        // const user = localStorage.getItem('user');
+        const userToken = localStorage.getItem('jwtToken');
+        const user = jwt_decode(userToken);
+
+        console.log('User to update his profile pix', user);
         axios.post("https://nfile-upload-api.herokuapp.com/api/user-profile", formData, {
         }).then(res => {
             console.log(res);
@@ -51,7 +67,7 @@ class FilesUpload extends Component {
 
                 <div className="row">
                     <div className="col-md-6">
-                        <img src={this.state.profileImg.profileImg} id="preview" className="img-thumbnail img-radius" alt="profileImg"/>
+                        <img src={this.state.profileImg} id="preview" className="img-thumbnail img-radius" alt="profileImg"/>
                     </div>
                     <div className="col-md-6">
                         <div id="msg"/>
