@@ -78,19 +78,19 @@ class Login extends Component {
                     <label htmlFor="email">Email Address</label>
 
                     <input
-                        onChange={this.onChange}
-                        value={this.state.email}
-                        error={errors.email}
-                        id="email"
-                        type="email"
-                        className={classnames('form-control', {
-                          invalid: errors.email || errors.emailnotfound,
-                        })}
+                      onChange={this.onChange}
+                      value={this.state.email}
+                      error={errors.email}
+                      id="email"
+                      type="email"
+                      className={classnames('form-control', {
+                        invalid: errors.email || errors.emailnotfound,
+                      })}
                     />
                     <span className="text-danger">
-                          {errors.email}
+                      {errors.email}
                       {errors.emailnotfound}
-                        </span>
+                    </span>
                   </div>
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-6">
@@ -98,20 +98,20 @@ class Login extends Component {
                     <label htmlFor="password">Password</label>
 
                     <input
-                        onChange={this.onChange}
-                        value={this.state.password}
-                        error={errors.password}
-                        id="password"
-                        type="password"
-                        className={classnames('form-control', {
-                          invalid:
-                              errors.password || errors.passwordincorrect,
-                        })}
+                      onChange={this.onChange}
+                      value={this.state.password}
+                      error={errors.password}
+                      id="password"
+                      type="password"
+                      className={classnames('form-control', {
+                        invalid:
+                          errors.password || errors.passwordincorrect,
+                      })}
                     />
                     <span className="text-danger">
-                          {errors.password}
+                      {errors.password}
                       {errors.passwordincorrect}
-                        </span>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -121,11 +121,17 @@ class Login extends Component {
                 </div>
                 <div className="col-xs-12 col-md-6">
                   <input
-                      type="submit"
-                      className="btn btn-success btn-lg d-block"
-                      value="Login"
+                    type="submit"
+                    className="btn btn-success btn-lg d-block"
+                    value="Login"
                   />
                 </div>
+              </div>
+              <div className="row">
+                <div className="col-xs-12 col-md-12">
+                  <Link to="/forgotpassword"> Forgot password</Link>
+                </div>
+
               </div>
             </form>
           </div>
@@ -148,6 +154,6 @@ const mapStateToProps = state => ({
 });
 
 export default connect(
-    mapStateToProps,
-    { loginUser },
+  mapStateToProps,
+  { loginUser },
 )(Login);
