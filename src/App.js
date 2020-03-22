@@ -17,6 +17,7 @@ import DashboardDetail from './components/Dashboard/dashboardDetail';
 
 import ResetPassword from './components/ChangePassword/ResetPassword';
 import ForgotPassword from './components/ChangePassword/ForgotPassword';
+import UploadImage from './components/UploadImage/UploadImage';
 import PersonalInfo from "./components/personalData/personal-info";
 import EditPersonalInfo from "./components/personalData/editPersonalInfo";
 
@@ -55,6 +56,7 @@ class App extends Component {
 
             <Route path="/resetpassword/:token/:email" exact component={ResetPassword} />
             <Route path="/forgotpassword" exact component={ForgotPassword} />
+            <Route path="/profileimage/:id" exact component={UploadImage} />
 
             <Switch>
               {/*<PrivateRoute path="/dashboard" exact component={Dashboard} />*/}

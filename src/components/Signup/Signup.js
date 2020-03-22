@@ -30,6 +30,7 @@ class Signup extends Component {
   }
 
   componentDidMount() {
+    console.log('signup::componentDidMount')
     // If logged in and user navigates to Register page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
       this.props.history.push("/dashboard");
@@ -45,10 +46,12 @@ class Signup extends Component {
       firstname: this.state.firstname,
       lastname: this.state.lastname,
       email: this.state.email,
-      phone: this.state.phone,
-      password: this.state.password,
-      password2: this.state.password2
+      // phone: this.state.phone,
+      password: this.state.password
+      // password2: this.state.password2
     };
+
+    console.log('Users to signup', newUser)
     this.props.registerUser(newUser, this.props.history);
   };
 
@@ -72,20 +75,20 @@ class Signup extends Component {
                   <div className="form-group">
                     <div className="input-group">
                       <div className="input-group-prepend">
-                        <span className="input-group-text" id="basic-addon1"><i className="fa fa-user"/></span>
+                        <span className="input-group-text" id="basic-addon1"><i className="fa fa-user" /></span>
                       </div>
-                    <input
-                      onChange={this.onChange}
-                      value={this.state.firstname}
-                      error={errors.firstname}
-                      id="firstname"
-                      type="text"
-                      placeholder="First Name"
-                      className={classnames("form-control", {
-                        invalid: errors.firstname,
-                      })}
-                    />
-                    <span className="text-danger">{errors.firstname}</span>
+                      <input
+                        onChange={this.onChange}
+                        value={this.state.firstname}
+                        error={errors.firstname}
+                        id="firstname"
+                        type="text"
+                        placeholder="First Name"
+                        className={classnames("form-control", {
+                          invalid: errors.firstname,
+                        })}
+                      />
+                      <span className="text-danger">{errors.firstname}</span>
                     </div>
                   </div>
                 </div>
@@ -93,53 +96,53 @@ class Signup extends Component {
                   <div className="form-group">
                     <div className="input-group">
                       <div className="input-group-prepend">
-                        <span className="input-group-text"><i className="fa fa-user"/> </span>
+                        <span className="input-group-text"><i className="fa fa-user" /> </span>
                       </div>
-                    <input
-                      onChange={this.onChange}
-                      value={this.state.lastname}
-                      error={errors.lastname}
-                      id="lastname"
-                      type="text"
-                      placeholder="Last Name"
-                      className={classnames("form-control", {
-                        invalid: errors.lastname,
-                      })}
-                    />
-                    <span className="text-danger">{errors.lastname}</span>
+                      <input
+                        onChange={this.onChange}
+                        value={this.state.lastname}
+                        error={errors.lastname}
+                        id="lastname"
+                        type="text"
+                        placeholder="Last Name"
+                        className={classnames("form-control", {
+                          invalid: errors.lastname,
+                        })}
+                      />
+                      <span className="text-danger">{errors.lastname}</span>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="row">
-                  <div className="col-xs-12 col-sm-6 col-md-6">
-                    <div className="form-group">
-                  <div className="input-group">
-                    <div className="input-group-prepend">
-                      <span className="input-group-text"><i className="fa fa-inbox"/> </span>
+                <div className="col-xs-12 col-sm-6 col-md-6">
+                  <div className="form-group">
+                    <div className="input-group">
+                      <div className="input-group-prepend">
+                        <span className="input-group-text"><i className="fa fa-inbox" /> </span>
+                      </div>
+                      <input
+                        onChange={this.onChange}
+                        value={this.state.email}
+                        error={errors.email}
+                        id="email"
+                        type="email"
+                        placeholder="Email Address"
+                        className={classnames("form-control", {
+                          invalid: errors.email,
+                        })}
+                      />
+                      <span className="text-danger">{errors.email}</span>
                     </div>
-                  <input
-                    onChange={this.onChange}
-                    value={this.state.email}
-                    error={errors.email}
-                    id="email"
-                    type="email"
-                    placeholder="Email Address"
-                    className={classnames("form-control", {
-                      invalid: errors.email,
-                    })}
-                  />
-                  <span className="text-danger">{errors.email}</span>
                   </div>
                 </div>
-                  </div>
-                  <div className="col-xs-12 col-sm-6 col-md-6">
-                    <div className="form-group">
-                  <div className="input-group">
-                    <div className="input-group-prepend">
-                      <span className="input-group-text"><i className="fa fa-phone"/> </span>
-                    </div>
-                  <input
+                <div className="col-xs-12 col-sm-6 col-md-6">
+                  <div className="form-group">
+                    <div className="input-group">
+                      <div className="input-group-prepend">
+                        <span className="input-group-text"><i className="fa fa-phone" /> </span>
+                      </div>
+                      {/* <input
                     onChange={this.onChange}
                     value={this.state.phone}
                     error={errors.phone}
@@ -149,31 +152,33 @@ class Signup extends Component {
                     className={classnames("form-control", {
                       invalid: errors.phone,
                     })}
-                  />
-                  <span className="text-danger">{errors.phone}</span>
+                  /> */}
+                      <span className="text-danger">{errors.phone}</span>
+                    </div>
                   </div>
                 </div>
-                  </div>
               </div>
+
+
               <div className="row">
                 <div className="col-xs-12 col-sm-6 col-md-6">
                   <div className="form-group">
                     <div className="input-group">
                       <div className="input-group-prepend">
-                        <span className="input-group-text"><i className="fa fa-user-secret"/> </span>
+                        <span className="input-group-text"><i className="fa fa-user-secret" /> </span>
                       </div>
-                    <input
-                      onChange={this.onChange}
-                      value={this.state.password}
-                      error={errors.password}
-                      id="password"
-                      type="password"
-                      placeholder="Password"
-                      className={classnames("form-control", {
-                        invalid: errors.password,
-                      })}
-                    />
-                    <span className="text-danger">{errors.password}</span>
+                      <input
+                        onChange={this.onChange}
+                        value={this.state.password}
+                        error={errors.password}
+                        id="password"
+                        type="password"
+                        placeholder="Password"
+                        className={classnames("form-control", {
+                          invalid: errors.password,
+                        })}
+                      />
+                      <span className="text-danger">{errors.password}</span>
                     </div>
                   </div>
                 </div>
@@ -181,10 +186,10 @@ class Signup extends Component {
                   <div className="form-group">
                     <div className="input-group">
                       <div className="input-group-prepend">
-                        <span className="input-group-text"><i className="fa fa-user-secret"/> </span>
+                        <span className="input-group-text"><i className="fa fa-user-secret" /> </span>
                       </div>
 
-                    <input
+                      {/* <input
                       onChange={this.onChange}
                       value={this.state.password2}
                       error={errors.password2}
@@ -194,8 +199,8 @@ class Signup extends Component {
                       className={classnames("form-control", {
                         invalid: errors.password2,
                       })}
-                    />
-                    <span className="text-danger">{errors.password2}</span>
+                    /> */}
+                      <span className="text-danger">{errors.password2}</span>
                     </div>
                   </div>
                 </div>
@@ -212,9 +217,9 @@ class Signup extends Component {
                   </button>
                 </div>
                 <div className="col-xs-12 col-md-6">
-                  <Link to="/login" className="btn btn-success btn-block btn-lg">
+                  {/* <Link to="/login" className="btn btn-success btn-block btn-lg">
                     Sign In
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </form>
@@ -317,6 +322,6 @@ const mapStateToProps = state => ({
 });
 
 export default connect(
-    mapStateToProps,
-    { registerUser },
+  mapStateToProps,
+  { registerUser },
 )(withRouter(Signup));

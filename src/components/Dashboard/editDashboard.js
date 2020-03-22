@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import Footer from "../layouts/footer/footer";
 
 
@@ -51,13 +51,13 @@ class EditDashboard extends Component {
     }
 
     componentDidMount() {
-        console.log('props:: user id', this.props.match.params.id);
+        console.log('props:: editing user id', this.props.match.params.id);
         const url = `https://ftc-api.herokuapp.com/api/users/detail/${this.props.match.params.id}`;
         console.log('Update url:', url);
         axios
             // .get('https://ftc-api.herokuapp.com/api/users/detail/' + this.props.match.params.id)
             .get(url)
-            .then( response => {
+            .then(response => {
                 this.setState({
                     unit_id: response.data.unit_id,
                     title: response.data.title,
@@ -107,7 +107,7 @@ class EditDashboard extends Component {
     }
 
     onChange = e => {
-        this.setState({[e.target.name]: e.target.value});
+        this.setState({ [e.target.name]: e.target.value });
     };
 
     onSubmit = e => {
@@ -158,7 +158,7 @@ class EditDashboard extends Component {
         axios
             .put('https://ftc-api.herokuapp.com/api/users/update/' + this.props.match.params.id, data)
             // .put('http://localhost:5000/api/users/update/' + this.props.match.params.id, data)
-            .then( res => {
+            .then(res => {
                 //Update this.props.auth
                 console.log('Editcomponent:: updated User data :', res.data);
                 //dispact action
@@ -179,655 +179,655 @@ class EditDashboard extends Component {
                     className="card-body"
                     onSubmit={this.onSubmit}>
                     <div className="container mb-4">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div className="card">
-                                <div className="card-header">General Information</div>
-                                <div className="card-body">
-                                    <div className="row">
-                                        <div className="col-md-6">
-                                            <label htmlFor="title">Title</label>
-                                            <select
-                                                className="custom-select"
-                                                name="title"
-                                                value={this.state.title}
-                                                onChange={this.onChange}
-                                            >
-                                                <option value="Dncs.">Dncs.</option>
-                                                <option value="Mr.">Mr.</option>
-                                                <option value="Mrs.">Mrs.</option>
-                                                <option value="Dncs.">Dcns.</option>
-                                                <option value="Pst.">Pst.</option>
-                                            </select>
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="card">
+                                    <div className="card-header">General Information</div>
+                                    <div className="card-body">
+                                        <div className="row">
+                                            <div className="col-md-6">
+                                                <label htmlFor="title">Title</label>
+                                                <select
+                                                    className="custom-select"
+                                                    name="title"
+                                                    value={this.state.title}
+                                                    onChange={this.onChange}
+                                                >
+                                                    <option value="Dncs.">Dncs.</option>
+                                                    <option value="Mr.">Mr.</option>
+                                                    <option value="Mrs.">Mrs.</option>
+                                                    <option value="Dncs.">Dcns.</option>
+                                                    <option value="Pst.">Pst.</option>
+                                                </select>
+                                            </div>
+                                            <div className="col-md-6">
+                                                <label htmlFor="email">Email Address</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    name="email"
+                                                    value={this.state.email}
+                                                    onChange={this.onChange}
+                                                />
+                                            </div>
                                         </div>
-                                        <div className="col-md-6">
-                                            <label htmlFor="email">Email Address</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                name="email"
-                                                value={this.state.email}
-                                                onChange={this.onChange}
-                                            />
+
+                                        <div className="row">
+                                            <div className="col-md-6">
+
+                                                <label htmlFor="unit_id">Unit ID</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    name="unit_id"
+                                                    value={this.state.unit_id}
+                                                    onChange={this.onChange}
+                                                />
+                                            </div>
+                                            <div className="col-md-6">
+                                                <label htmlFor="rehearsal_location">Rehearsal Location</label>
+                                                <select
+                                                    className="custom-select"
+                                                    name="rehearsal_location"
+                                                    value={this.state.rehearsal_location}
+                                                    onChange={this.onChange}
+                                                >
+                                                    <option value="Canaanland">Canaanland</option>
+                                                    <option value="Raji Oba">Raji Oba</option>
+                                                    <option value="Ikoyi">Ikoyi</option>
+                                                    <option value="Oregun">Oregun</option>
+                                                    <option value="Festac">Festac</option>
+                                                    <option value="Iyana Ishasi 1008">Iyana Ishasi 1008</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div className="row">
+                                            <div className="col-md-6">
+                                                <label htmlFor="vocal_part">Vocal Part</label>
+                                                <select
+                                                    className="custom-select"
+                                                    name="vocal_part"
+                                                    value={this.state.vocal_part}
+                                                    onChange={this.onChange}
+                                                >
+                                                    <option value="Soprano">Soprano</option>
+                                                    <option value="Alto">Alto</option>
+                                                    <option value="Tenor">Tenor</option>
+                                                    <option value="Musician">Musician</option>
+                                                </select>
+                                            </div>
+                                            <div className="col-md-6">
+                                                <label htmlFor="group">Group</label>
+                                                <select
+                                                    className="custom-select"
+                                                    name="group"
+                                                    value={this.state.group}
+                                                    onChange={this.onChange}
+                                                >
+                                                    <option value="Group 1">Group 1</option>
+                                                    <option value="Group 2">Group 2</option>
+                                                    <option value="Group 3">Group 3</option>
+                                                    <option value="Group 4">Group 4</option>
+                                                    <option value="Group 5">Group 5</option>
+                                                    <option value="Group 6">Group 6</option>
+                                                    <option value="Group 7">Group 7</option>
+                                                    <option value="Group 8">Group 8</option>
+                                                    <option value="Group 9">Group 9</option>
+                                                    <option value="Group 10">Group 10</option>
+                                                    <option value="Group 11">Group 11</option>
+                                                    <option value="Group 12">Group 12</option>
+                                                    <option value="Group 13">Group 13</option>
+                                                    <option value="Group 14">Group 14</option>
+                                                    <option value="Group 15">Group 15</option>
+                                                    <option value="Group 16">Group 16</option>
+                                                    <option value="Group 17">Group 17</option>
+                                                    <option value="Group 18">Group 18</option>
+                                                    <option value="Group 19">Group 19</option>
+                                                    <option value="Group 20">Group 20</option>
+                                                    <option value="Group 21">Group 21</option>
+                                                    <option value="Group 22">Group 22</option>
+                                                    <option value="Group 23">Group 23</option>
+                                                    <option value="Group 24">Group 24</option>
+                                                    <option value="Group 25">Group 25</option>
+                                                    <option value="Group 26">Group 26</option>
+                                                    <option value="Group 27">Group 27</option>
+                                                    <option value="Group 28">Group 28</option>
+                                                    <option value="Group 29">Group 29</option>
+                                                    <option value="Group 30">Group 30</option>
+                                                    <option value="Group 31">Group 31</option>
+                                                    <option value="Group 32">Group 32</option>
+                                                    <option value="Group 33">Group 33</option>
+                                                    <option value="Group 34">Group 34</option>
+                                                    <option value="Group 35">Group 35</option>
+                                                    <option value="Group 36">Group 36</option>
+                                                    <option value="Group 37">Group 37</option>
+                                                    <option value="Group 38">Group 38</option>
+                                                    <option value="Group 39">Group 39</option>
+                                                    <option value="Group 40">Group 40</option>
+                                                    <option value="Group 41">Group 41</option>
+                                                    <option value="Group 42">Group 42</option>
+                                                    <option value="Group 43">Group 43</option>
+                                                    <option value="Group 44">Group 44</option>
+                                                    <option value="Group 45">Group 45</option>
+                                                    <option value="Group 46">Group 46</option>
+                                                    <option value="Group 47">Group 47</option>
+                                                    <option value="Group 48">Group 48</option>
+                                                    <option value="Group 49">Group 49</option>
+                                                    <option value="Group 50">Group 50</option>
+                                                    <option value="Group 51">Group 51</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div className="row">
-                                        <div className="col-md-6">
-
-                                            <label htmlFor="unit_id">Unit ID</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                name="unit_id"
-                                                value={this.state.unit_id}
-                                                onChange={this.onChange}
-                                            />
-                                        </div>
-                                        <div className="col-md-6">
-                                            <label htmlFor="rehearsal_location">Rehearsal Location</label>
-                                            <select
-                                                className="custom-select"
-                                                name="rehearsal_location"
-                                                value={this.state.rehearsal_location}
-                                                onChange={this.onChange}
-                                            >
-                                                <option value="Canaanland">Canaanland</option>
-                                                <option value="Raji Oba">Raji Oba</option>
-                                                <option value="Ikoyi">Ikoyi</option>
-                                                <option value="Oregun">Oregun</option>
-                                                <option value="Festac">Festac</option>
-                                                <option value="Iyana Ishasi 1008">Iyana Ishasi 1008</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div className="row">
-                                        <div className="col-md-6">
-                                            <label htmlFor="vocal_part">Vocal Part</label>
-                                            <select
-                                                className="custom-select"
-                                                name="vocal_part"
-                                                value={this.state.vocal_part}
-                                                onChange={this.onChange}
-                                            >
-                                                <option value="Soprano">Soprano</option>
-                                                <option value="Alto">Alto</option>
-                                                <option value="Tenor">Tenor</option>
-                                                <option value="Musician">Musician</option>
-                                            </select>
-                                        </div>
-                                        <div className="col-md-6">
-                                            <label htmlFor="group">Group</label>
-                                            <select
-                                                className="custom-select"
-                                                name="group"
-                                                value={this.state.group}
-                                                onChange={this.onChange}
-                                            >
-                                                <option value="Group 1">Group 1</option>
-                                                <option value="Group 2">Group 2</option>
-                                                <option value="Group 3">Group 3</option>
-                                                <option value="Group 4">Group 4</option>
-                                                <option value="Group 5">Group 5</option>
-                                                <option value="Group 6">Group 6</option>
-                                                <option value="Group 7">Group 7</option>
-                                                <option value="Group 8">Group 8</option>
-                                                <option value="Group 9">Group 9</option>
-                                                <option value="Group 10">Group 10</option>
-                                                <option value="Group 11">Group 11</option>
-                                                <option value="Group 12">Group 12</option>
-                                                <option value="Group 13">Group 13</option>
-                                                <option value="Group 14">Group 14</option>
-                                                <option value="Group 15">Group 15</option>
-                                                <option value="Group 16">Group 16</option>
-                                                <option value="Group 17">Group 17</option>
-                                                <option value="Group 18">Group 18</option>
-                                                <option value="Group 19">Group 19</option>
-                                                <option value="Group 20">Group 20</option>
-                                                <option value="Group 21">Group 21</option>
-                                                <option value="Group 22">Group 22</option>
-                                                <option value="Group 23">Group 23</option>
-                                                <option value="Group 24">Group 24</option>
-                                                <option value="Group 25">Group 25</option>
-                                                <option value="Group 26">Group 26</option>
-                                                <option value="Group 27">Group 27</option>
-                                                <option value="Group 28">Group 28</option>
-                                                <option value="Group 29">Group 29</option>
-                                                <option value="Group 30">Group 30</option>
-                                                <option value="Group 31">Group 31</option>
-                                                <option value="Group 32">Group 32</option>
-                                                <option value="Group 33">Group 33</option>
-                                                <option value="Group 34">Group 34</option>
-                                                <option value="Group 35">Group 35</option>
-                                                <option value="Group 36">Group 36</option>
-                                                <option value="Group 37">Group 37</option>
-                                                <option value="Group 38">Group 38</option>
-                                                <option value="Group 39">Group 39</option>
-                                                <option value="Group 40">Group 40</option>
-                                                <option value="Group 41">Group 41</option>
-                                                <option value="Group 42">Group 42</option>
-                                                <option value="Group 43">Group 43</option>
-                                                <option value="Group 44">Group 44</option>
-                                                <option value="Group 45">Group 45</option>
-                                                <option value="Group 46">Group 46</option>
-                                                <option value="Group 47">Group 47</option>
-                                                <option value="Group 48">Group 48</option>
-                                                <option value="Group 49">Group 49</option>
-                                                <option value="Group 50">Group 50</option>
-                                                <option value="Group 51">Group 51</option>
-                                            </select>
-                                        </div>
-                                    </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
-                </div>
                     <div className="container mb-4">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div className="card">
-                                <div className="card-header personal-info-header">
-                                    Personal Information
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="card">
+                                    <div className="card-header personal-info-header">
+                                        Personal Information
                                 </div>
 
-                                <div className="card-body">
-                                    <div className="row">
-                                        <div className="col-md-3">
-                                            <label htmlFor="phone">Mobile Phone Number</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                name="phone"
-                                                value={this.state.phone}
-                                                onChange={this.onChange}
-                                            />
+                                    <div className="card-body">
+                                        <div className="row">
+                                            <div className="col-md-3">
+                                                <label htmlFor="phone">Mobile Phone Number</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    name="phone"
+                                                    value={this.state.phone}
+                                                    onChange={this.onChange}
+                                                />
+                                            </div>
+
+                                            <div className="col-md-3">
+                                                <label htmlFor="whatsapp_phone">Whatsapp Phone</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    name="whatsapp_phone"
+                                                    value={this.state.whatsapp_phone}
+                                                    onChange={this.onChange}
+                                                />
+                                            </div>
+
+                                            <div className="col-md-3">
+                                                <label htmlFor="email">Email</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    name="email"
+                                                    value={this.state.email}
+                                                    onChange={this.onChange}
+                                                />
+                                            </div>
+
+                                            <div className="col-md-3">
+                                                <label htmlFor="contact_address">Residential Address</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    name="contact_address"
+                                                    value={this.state.contact_address}
+                                                    onChange={this.onChange}
+                                                />
+                                            </div>
                                         </div>
 
-                                        <div className="col-md-3">
-                                            <label htmlFor="whatsapp_phone">Whatsapp Phone</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                name="whatsapp_phone"
-                                                value={this.state.whatsapp_phone}
-                                                onChange={this.onChange}
-                                            />
+                                        <div className="row mt-5">
+                                            <div className="col-md-3">
+                                                <label htmlFor="pha">Permanent Home Address</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    name="pha"
+                                                    value={this.state.pha}
+                                                    onChange={this.onChange}
+                                                />
+                                            </div>
+
+                                            <div className="col-md-3">
+                                                <label htmlFor="dob">Date of Birth</label>
+                                                <input
+                                                    type="date"
+                                                    className="form-control"
+                                                    name="dob"
+                                                    value={this.state.dob}
+                                                    onChange={this.onChange}
+                                                />
+                                            </div>
+
+                                            <div className="col-md-3">
+                                                <label htmlFor="wed_date">Wedding Date/Anniversary</label>
+                                                <input
+                                                    type="date"
+                                                    className="form-control"
+                                                    name="wed_date"
+                                                    value={this.state.wed_date}
+                                                    onChange={this.onChange}
+                                                />
+                                            </div>
+
+                                            <div className="col-md-3">
+                                                <label htmlFor="marital_status">Marital Status</label>
+                                                <select
+                                                    className="custom-select"
+                                                    name="marital_status"
+                                                    value={this.state.marital_status}
+                                                    onChange={this.onChange}
+                                                >
+                                                    <option value="Single">Single</option>
+                                                    <option value="In a Relationship">In a Relationship</option>
+                                                    <option value="Engaged">Engaged</option>
+                                                    <option value="Married">Married</option>
+                                                    <option value="Separated">Separated</option>
+                                                    <option value="Divorced">Divorced</option>
+                                                    <option value="Widowed">Widowed</option>
+                                                </select>
+                                            </div>
                                         </div>
 
-                                        <div className="col-md-3">
-                                            <label htmlFor="email">Email</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                name="email"
-                                                value={this.state.email}
-                                                onChange={this.onChange}
-                                            />
+                                        <div className="row mt-5">
+                                            <div className="col-md-3">
+                                                <label htmlFor="work_status">Employment Status</label>
+                                                <select
+                                                    className="custom-select"
+                                                    name="work_status"
+                                                    value={this.state.work_status}
+                                                    onChange={this.onChange}
+                                                >
+                                                    <option>Seeking Employment</option>
+                                                    <option>Employed</option>
+                                                    <option>Self Employed</option>
+                                                </select>
+                                            </div>
+
+                                            <div className="col-md-3">
+                                                <label htmlFor="profession">Profession/Ocupation</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    name="profession"
+                                                    value={this.state.profession}
+                                                    onChange={this.onChange}
+                                                />
+                                            </div>
+
+                                            <div className="col-md-3">
+                                                <label htmlFor="employer_name">Employer's Name</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    name="employer_name"
+                                                    value={this.state.employer_name}
+                                                    onChange={this.onChange}
+                                                />
+                                            </div>
+
+                                            <div className="col-md-3">
+                                                <label htmlFor="employer_address">Employer's Address</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    name="employer_address"
+                                                    value={this.state.employer_address}
+                                                    onChange={this.onChange}
+                                                />
+                                            </div>
                                         </div>
 
-                                        <div className="col-md-3">
-                                            <label htmlFor="contact_address">Residential Address</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                name="contact_address"
-                                                value={this.state.contact_address}
-                                                onChange={this.onChange}
-                                            />
+                                        <div className="row mt-5">
+                                            <div className="col-md-3">
+                                                <label htmlFor="state_origin">State of Origin</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    name="state_origin"
+                                                    value={this.state.state_origin}
+                                                    onChange={this.onChange}
+                                                />
+                                            </div>
+
+                                            <div className="col-md-3">
+                                                <label htmlFor="nationality">Nationality</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    name="nationality"
+                                                    value={this.state.nationality}
+                                                    onChange={this.onChange}
+                                                />
+                                            </div>
+
+                                            <div className="col-md-3">...</div>
+
+                                            <div className="col-md-3">
+                                                {/*<Link*/}
+                                                {/*    to={`https://ftc-api.herokuapp.com/api/personal/${personal._id}`}*/}
+                                                {/*    className="btn btn-secondary"*/}
+                                                {/*>*/}
+                                                {/*    Update Info*/}
+                                                {/*</Link>*/}
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div className="row mt-5">
-                                        <div className="col-md-3">
-                                            <label htmlFor="pha">Permanent Home Address</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                name="pha"
-                                                value={this.state.pha}
-                                                onChange={this.onChange}
-                                            />
-                                        </div>
-
-                                        <div className="col-md-3">
-                                            <label htmlFor="dob">Date of Birth</label>
-                                            <input
-                                                type="date"
-                                                className="form-control"
-                                                name="dob"
-                                                value={this.state.dob}
-                                                onChange={this.onChange}
-                                            />
-                                        </div>
-
-                                        <div className="col-md-3">
-                                            <label htmlFor="wed_date">Wedding Date/Anniversary</label>
-                                            <input
-                                                type="date"
-                                                className="form-control"
-                                                name="wed_date"
-                                                value={this.state.wed_date}
-                                                onChange={this.onChange}
-                                            />
-                                        </div>
-
-                                        <div className="col-md-3">
-                                            <label htmlFor="marital_status">Marital Status</label>
-                                            <select
-                                                className="custom-select"
-                                                name="marital_status"
-                                                value={this.state.marital_status}
-                                                onChange={this.onChange}
-                                            >
-                                                <option value="Single">Single</option>
-                                                <option value="In a Relationship">In a Relationship</option>
-                                                <option value="Engaged">Engaged</option>
-                                                <option value="Married">Married</option>
-                                                <option value="Separated">Separated</option>
-                                                <option value="Divorced">Divorced</option>
-                                                <option value="Widowed">Widowed</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div className="row mt-5">
-                                        <div className="col-md-3">
-                                            <label htmlFor="work_status">Employment Status</label>
-                                            <select
-                                                className="custom-select"
-                                                name="work_status"
-                                                value={this.state.work_status}
-                                                onChange={this.onChange}
-                                            >
-                                                <option>Seeking Employment</option>
-                                                <option>Employed</option>
-                                                <option>Self Employed</option>
-                                            </select>
-                                        </div>
-
-                                        <div className="col-md-3">
-                                            <label htmlFor="profession">Profession/Ocupation</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                name="profession"
-                                                value={this.state.profession}
-                                                onChange={this.onChange}
-                                            />
-                                        </div>
-
-                                        <div className="col-md-3">
-                                            <label htmlFor="employer_name">Employer's Name</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                name="employer_name"
-                                                value={this.state.employer_name}
-                                                onChange={this.onChange}
-                                            />
-                                        </div>
-
-                                        <div className="col-md-3">
-                                            <label htmlFor="employer_address">Employer's Address</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                name="employer_address"
-                                                value={this.state.employer_address}
-                                                onChange={this.onChange}
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="row mt-5">
-                                        <div className="col-md-3">
-                                            <label htmlFor="state_origin">State of Origin</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                name="state_origin"
-                                                value={this.state.state_origin}
-                                                onChange={this.onChange}
-                                            />
-                                        </div>
-
-                                        <div className="col-md-3">
-                                            <label htmlFor="nationality">Nationality</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                name="nationality"
-                                                value={this.state.nationality}
-                                                onChange={this.onChange}
-                                            />
-                                        </div>
-
-                                        <div className="col-md-3">...</div>
-
-                                        <div className="col-md-3">
-                                            {/*<Link*/}
-                                            {/*    to={`https://ftc-api.herokuapp.com/api/personal/${personal._id}`}*/}
-                                            {/*    className="btn btn-secondary"*/}
-                                            {/*>*/}
-                                            {/*    Update Info*/}
-                                            {/*</Link>*/}
-                                        </div>
-                                    </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
-                </div>
                     <div className="container mb-4">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div className="card">
-                                <div className="card-header nok-header">
-                                    Next of Kin Information
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="card">
+                                    <div className="card-header nok-header">
+                                        Next of Kin Information
                                 </div>
 
-                                <div className="card-body">
-                                    <div className="row">
-                                        <div className="col-md-4">
-                                            <label htmlFor="nok_name">Name</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                name="nok_name"
-                                                value={this.state.nok_name}
-                                                onChange={this.onChange}
-                                            />
+                                    <div className="card-body">
+                                        <div className="row">
+                                            <div className="col-md-4">
+                                                <label htmlFor="nok_name">Name</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    name="nok_name"
+                                                    value={this.state.nok_name}
+                                                    onChange={this.onChange}
+                                                />
+                                            </div>
+
+                                            <div className="col-md-4">
+                                                <label htmlFor="nok_address">Address</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    name="nok_address"
+                                                    value={this.state.nok_address}
+                                                    onChange={this.onChange}
+                                                />
+                                            </div>
+
+                                            <div className="col-md-4">
+                                                <label htmlFor="nok_phone">Phone</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    name="nok_phone"
+                                                    value={this.state.nok_phone}
+                                                    onChange={this.onChange}
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="row mt-5">
+                                            <div className="col-md-4">
+                                                <label htmlFor="nok_occupation">Occupation</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    name="nok_occupation"
+                                                    value={this.state.nok_occupation}
+                                                    onChange={this.onChange}
+                                                />
+                                            </div>
+
+                                            <div className="col-md-4">
+                                                <label htmlFor="nok_relation">Relation</label>
+                                                <select
+                                                    className="custom-select"
+                                                    name="nok_relation"
+                                                    value={this.state.nok_relation}
+                                                    onChange={this.onChange}
+                                                >
+                                                    <option value="Spouse">Spouse</option>
+                                                    <option value="Parent">Parent</option>
+                                                    <option value="Sibling">Sibling</option>
+                                                    <option value="Relative">Relative</option>
+                                                    <option value="Mentor">Mentor</option>
+                                                    <option value="Protege">Protege</option>
+                                                </select>
+                                            </div>
+
+                                            <div className="col-md-4">
+                                                <label htmlFor="nok_email">Email</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    name="nok_email"
+                                                    value={this.state.nok_email}
+                                                    onChange={this.onChange}
+                                                />
+                                            </div>
                                         </div>
 
-                                        <div className="col-md-4">
-                                            <label htmlFor="nok_address">Address</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                name="nok_address"
-                                                value={this.state.nok_address}
-                                                onChange={this.onChange}
-                                            />
+                                        <div className="row mt-5">
+                                            <div className="col-md-4">
+                                                ...
                                         </div>
 
-                                        <div className="col-md-4">
-                                            <label htmlFor="nok_phone">Phone</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                name="nok_phone"
-                                                value={this.state.nok_phone}
-                                                onChange={this.onChange}
-                                            />
+                                            <div className="col-md-4">
+                                                ...
+                                        </div>
+
+                                            <div className="col-md-4">
+                                                {/*<button className="btn btn-secondary">Update Info</button>*/}
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="row mt-5">
-                                        <div className="col-md-4">
-                                            <label htmlFor="nok_occupation">Occupation</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                name="nok_occupation"
-                                                value={this.state.nok_occupation}
-                                                onChange={this.onChange}
-                                            />
-                                        </div>
 
-                                        <div className="col-md-4">
-                                            <label htmlFor="nok_relation">Relation</label>
-                                            <select
-                                                className="custom-select"
-                                                name="nok_relation"
-                                                value={this.state.nok_relation}
-                                                onChange={this.onChange}
-                                            >
-                                                <option value="Spouse">Spouse</option>
-                                                <option value="Parent">Parent</option>
-                                                <option value="Sibling">Sibling</option>
-                                                <option value="Relative">Relative</option>
-                                                <option value="Mentor">Mentor</option>
-                                                <option value="Protege">Protege</option>
-                                            </select>
-                                        </div>
-
-                                        <div className="col-md-4">
-                                            <label htmlFor="nok_email">Email</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                name="nok_email"
-                                                value={this.state.nok_email}
-                                                onChange={this.onChange}
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="row mt-5">
-                                        <div className="col-md-4">
-                                            ...
-                                        </div>
-
-                                        <div className="col-md-4">
-                                            ...
-                                        </div>
-
-                                        <div className="col-md-4">
-                                            {/*<button className="btn btn-secondary">Update Info</button>*/}
-                                        </div>
-                                    </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
-                </div>
                     <div className="container mb-4">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div className="card">
-                                <div className="card-header choir-role-header">
-                                    Choir Role
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="card">
+                                    <div className="card-header choir-role-header">
+                                        Choir Role
                                 </div>
 
-                                <div className="card-body">
-                                    <div className="row">
-                                        <div className="col-md-3">
-                                            <label htmlFor="membership_status">Membership Status</label>
-                                            <select
-                                                className="custom-select"
-                                                name="membership_status"
-                                                value={this.state.membership_status}
-                                                onChange={this.onChange}
-                                            >
-                                                <option>Member</option>
-                                                <option>Ordained worker</option>
-                                                <option>Pastorate</option>
-                                            </select>
-                                        </div>
+                                    <div className="card-body">
+                                        <div className="row">
+                                            <div className="col-md-3">
+                                                <label htmlFor="membership_status">Membership Status</label>
+                                                <select
+                                                    className="custom-select"
+                                                    name="membership_status"
+                                                    value={this.state.membership_status}
+                                                    onChange={this.onChange}
+                                                >
+                                                    <option>Member</option>
+                                                    <option>Ordained worker</option>
+                                                    <option>Pastorate</option>
+                                                </select>
+                                            </div>
 
-                                        <div className="col-md-3">
-                                            <label htmlFor="leadership_status">Leadership Status</label>
-                                            <select
-                                                className="custom-select"
-                                                name="leadership_status"
-                                                value={this.state.leadership_status}
-                                                onChange={this.onChange}
-                                            >
-                                                <option value="Choir Master">Choir Master</option>
-                                                <option value="Asst. Choir Master">Asst. Choir Master</option>
-                                                <option value="Choir Secretary">Choir Secretary</option>
-                                                <option value="Asst. Choir Secretary">Asst. Choir Secretary</option>
-                                                <option value="Song Teacher">Song Teacher</option>
-                                                <option value="Part Head">Part Head</option>
-                                                <option value="Head of Musician">Head of Musician</option>
-                                                <option value="Group Leader">Group Leader</option>
-                                                <option value="Group Secretary">Group Secretary</option>
-                                                <option value="Chorister">Chorister</option>
-                                            </select>
-                                        </div>
+                                            <div className="col-md-3">
+                                                <label htmlFor="leadership_status">Leadership Status</label>
+                                                <select
+                                                    className="custom-select"
+                                                    name="leadership_status"
+                                                    value={this.state.leadership_status}
+                                                    onChange={this.onChange}
+                                                >
+                                                    <option value="Choir Master">Choir Master</option>
+                                                    <option value="Asst. Choir Master">Asst. Choir Master</option>
+                                                    <option value="Choir Secretary">Choir Secretary</option>
+                                                    <option value="Asst. Choir Secretary">Asst. Choir Secretary</option>
+                                                    <option value="Song Teacher">Song Teacher</option>
+                                                    <option value="Part Head">Part Head</option>
+                                                    <option value="Head of Musician">Head of Musician</option>
+                                                    <option value="Group Leader">Group Leader</option>
+                                                    <option value="Group Secretary">Group Secretary</option>
+                                                    <option value="Chorister">Chorister</option>
+                                                </select>
+                                            </div>
 
-                                        <div className="col-md-7">
-                                            <label htmlFor="sub_group">Sub Group</label>
-                                            <select
-                                                className="custom-select"
-                                                name="sub_group"
-                                                value={this.state.sub_group}
-                                                onChange={this.onChange}
-                                            >
-                                                <option value="Music Team">Music Team</option>
-                                                <option value="Praise Team">Praise Team</option>
-                                                <option value="Medical Team">Medical Team</option>
-                                                <option value="Technical Unit">Technical Unit</option>
-                                                <option value="Royal Apparel">Royal Apparel</option>
-                                                <option value="FTC Secretariat/Protocol">FTC Secretariat / Protocol</option>
-                                                <option value="Covenant Partner">Covenant Partner</option>
-                                                <option value="Legal Team">Legal Team</option>
-                                                <option value="Welfare Team">Welfare Team</option>
-                                            </select>
-                                        </div>
+                                            <div className="col-md-7">
+                                                <label htmlFor="sub_group">Sub Group</label>
+                                                <select
+                                                    className="custom-select"
+                                                    name="sub_group"
+                                                    value={this.state.sub_group}
+                                                    onChange={this.onChange}
+                                                >
+                                                    <option value="Music Team">Music Team</option>
+                                                    <option value="Praise Team">Praise Team</option>
+                                                    <option value="Medical Team">Medical Team</option>
+                                                    <option value="Technical Unit">Technical Unit</option>
+                                                    <option value="Royal Apparel">Royal Apparel</option>
+                                                    <option value="FTC Secretariat/Protocol">FTC Secretariat / Protocol</option>
+                                                    <option value="Covenant Partner">Covenant Partner</option>
+                                                    <option value="Legal Team">Legal Team</option>
+                                                    <option value="Welfare Team">Welfare Team</option>
+                                                </select>
+                                            </div>
 
-                                        <div className="col-md-4">
-                                            {/*<button className="btn btn-secondary">*/}
-                                            {/*    Update Info*/}
-                                            {/*</button>*/}
+                                            <div className="col-md-4">
+                                                {/*<button className="btn btn-secondary">*/}
+                                                {/*    Update Info*/}
+                                                {/*</button>*/}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                     <div className="container mb-4">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div className="card">
-                                <div className="card-header church-info-header">
-                                    Church Information
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="card">
+                                    <div className="card-header church-info-header">
+                                        Church Information
                                 </div>
 
-                                <div className="card-body">
-                                    <div className="row">
-                                        <div className="col-md-4">
-                                            <label htmlFor="wsf_status">WSF Status</label>
-                                            <select
-                                                className="custom-select"
-                                                name="wsf_status"
-                                                value={this.state.wsf_status}
-                                                onChange={this.onChange}
-                                            >
-                                                <option value="Provincial Pastor">Provincial Pastor</option>
-                                                <option value="District Pastor">District Pastor</option>
-                                                <option value="Home Provider">Home Provider</option>
-                                                <option value="Cell Minister">Cell Minister</option>
-                                                <option value="Asst. Cell Minister">Asst. Cell Minister</option>
-                                                <option value="Cell Secretary">Cell Secretary</option>
-                                                <option value="Zonal Minister">Zonal Minister</option>
-                                                <option value="Asst. Zonal Minister">Asst. Zonal Minister</option>
-                                                <option value="Chairman (Zonal Council)">Chairman (Zonal Council)</option>
-                                                <option value="Asst. Chairman (Zonal Council)">Asst. Chairman (Zonal Council)</option>
-                                                <option value="Secretary (Zonal Council)">Secretary (Zonal Council)</option>
-                                            </select>
+                                    <div className="card-body">
+                                        <div className="row">
+                                            <div className="col-md-4">
+                                                <label htmlFor="wsf_status">WSF Status</label>
+                                                <select
+                                                    className="custom-select"
+                                                    name="wsf_status"
+                                                    value={this.state.wsf_status}
+                                                    onChange={this.onChange}
+                                                >
+                                                    <option value="Provincial Pastor">Provincial Pastor</option>
+                                                    <option value="District Pastor">District Pastor</option>
+                                                    <option value="Home Provider">Home Provider</option>
+                                                    <option value="Cell Minister">Cell Minister</option>
+                                                    <option value="Asst. Cell Minister">Asst. Cell Minister</option>
+                                                    <option value="Cell Secretary">Cell Secretary</option>
+                                                    <option value="Zonal Minister">Zonal Minister</option>
+                                                    <option value="Asst. Zonal Minister">Asst. Zonal Minister</option>
+                                                    <option value="Chairman (Zonal Council)">Chairman (Zonal Council)</option>
+                                                    <option value="Asst. Chairman (Zonal Council)">Asst. Chairman (Zonal Council)</option>
+                                                    <option value="Secretary (Zonal Council)">Secretary (Zonal Council)</option>
+                                                </select>
+                                            </div>
+
+                                            <div className="col-md-4">
+                                                <label htmlFor="new_birth_year">New Birth Year</label>
+                                                <input
+                                                    type="date"
+                                                    className="form-control"
+                                                    name="new_birth_year"
+                                                    value={this.state.new_birth_year}
+                                                    onChange={this.onChange}
+                                                />
+                                            </div>
+
+                                            <div className="col-md-4">
+                                                <label htmlFor="holy_spirit_year">Holy Spirit Year</label>
+                                                <input
+                                                    type="date"
+                                                    className="form-control"
+                                                    name="holy_spirit_year"
+                                                    value={this.state.holy_spirit_year}
+                                                    onChange={this.onChange}
+                                                />
+                                            </div>
                                         </div>
 
-                                        <div className="col-md-4">
-                                            <label htmlFor="new_birth_year">New Birth Year</label>
-                                            <input
-                                                type="date"
-                                                className="form-control"
-                                                name="new_birth_year"
-                                                value={this.state.new_birth_year}
-                                                onChange={this.onChange}
-                                            />
+                                        <div className="row mt-5">
+                                            <div className="col-md-4">
+                                                <label htmlFor="lfc_joined_year">LFC Joined year</label>
+                                                <input
+                                                    type="date"
+                                                    className="form-control"
+                                                    name="lfc_joined_year"
+                                                    value={this.state.lfc_joined_year}
+                                                    onChange={this.onChange}
+                                                />
+                                            </div>
+
+                                            <div className="col-md-4">
+                                                <label htmlFor="ordination_year">Ordination Year</label>
+                                                <input
+                                                    type="date"
+                                                    className="form-control"
+                                                    name="ordination_year"
+                                                    value={this.state.ordination_year}
+                                                    onChange={this.onChange}
+                                                />
+                                            </div>
+
+                                            <div className="col-md-4">
+                                                <label htmlFor="province">Province</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    name="province"
+                                                    value={this.state.province}
+                                                    onChange={this.onChange}
+                                                />
+                                            </div>
                                         </div>
 
-                                        <div className="col-md-4">
-                                            <label htmlFor="holy_spirit_year">Holy Spirit Year</label>
-                                            <input
-                                                type="date"
-                                                className="form-control"
-                                                name="holy_spirit_year"
-                                                value={this.state.holy_spirit_year}
-                                                onChange={this.onChange}
-                                            />
-                                        </div>
-                                    </div>
+                                        <div className="row mt-5">
+                                            <div className="col-md-4">
+                                                <label htmlFor="district">District</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    name="district"
+                                                    value={this.state.district}
+                                                    onChange={this.onChange}
+                                                />
+                                            </div>
 
-                                    <div className="row mt-5">
-                                        <div className="col-md-4">
-                                            <label htmlFor="lfc_joined_year">LFC Joined year</label>
-                                            <input
-                                                type="date"
-                                                className="form-control"
-                                                name="lfc_joined_year"
-                                                value={this.state.lfc_joined_year}
-                                                onChange={this.onChange}
-                                            />
-                                        </div>
+                                            <div className="col-md-4">
+                                                <label htmlFor="zone">Zone</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    name="zone"
+                                                    value={this.state.zone}
+                                                    onChange={this.onChange}
+                                                />
+                                            </div>
 
-                                        <div className="col-md-4">
-                                            <label htmlFor="ordination_year">Ordination Year</label>
-                                            <input
-                                                type="date"
-                                                className="form-control"
-                                                name="ordination_year"
-                                                value={this.state.ordination_year}
-                                                onChange={this.onChange}
-                                            />
-                                        </div>
-
-                                        <div className="col-md-4">
-                                            <label htmlFor="province">Province</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                name="province"
-                                                value={this.state.province}
-                                                onChange={this.onChange}
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="row mt-5">
-                                        <div className="col-md-4">
-                                            <label htmlFor="district">District</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                name="district"
-                                                value={this.state.district}
-                                                onChange={this.onChange}
-                                            />
-                                        </div>
-
-                                        <div className="col-md-4">
-                                            <label htmlFor="zone">Zone</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                name="zone"
-                                                value={this.state.zone}
-                                                onChange={this.onChange}
-                                            />
-                                        </div>
-
-                                        <div className="col-md-4 ">
-                                            <button
-                                                type="submit"
-                                                className="btn btn-outline-success btn-lg d-block">Save Info</button>
+                                            <div className="col-md-4 ">
+                                                <button
+                                                    type="submit"
+                                                    className="btn btn-outline-success btn-lg d-block">Save Info</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 </form>
-                <Footer/>
+                <Footer />
             </div>
         );
     }

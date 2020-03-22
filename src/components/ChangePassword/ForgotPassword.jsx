@@ -17,7 +17,7 @@ class ForgotPassword extends Component {
     console.log('Email to reset link', this.state)
     const { email } = this.state;
     console.log('emtered mail', JSON.stringify({ email: email }))
-    fetch('http://localhost:8000/api/v1/auth/forgotpassword',
+    fetch('https://ftc2020-api.herokuapp.com/api/v1/auth/forgotpassword',
       {
         method: 'POST',
         body: JSON.stringify({ email: email }),

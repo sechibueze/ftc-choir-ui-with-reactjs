@@ -30,6 +30,7 @@ class Login extends Component {
   }
 
   componentDidMount() {
+    console.log('Login::componentDidiMount props', this.props)
     // If logged in and user navigates to Login page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
       this.props.history.push("/dashboard");
@@ -46,7 +47,7 @@ class Login extends Component {
       email: this.state.email,
       password: this.state.password
     };
-    this.props.loginUser(userData);
+    this.props.loginUser(userData, this.props.history);
   };
 
   render() {
@@ -142,15 +143,15 @@ class Login extends Component {
 }
 
 
-Login.propTypes = {
-  loginUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired,
-};
+// Login.propTypes = {
+//   loginUser: PropTypes.func.isRequired,
+//   auth: PropTypes.object.isRequired,
+//   errors: PropTypes.object.isRequired,
+// };
 
 const mapStateToProps = state => ({
-  auth: state.auth,
-  errors: state.errors,
+  auth: state.auth
+  // errors: state.errors,
 });
 
 export default connect(
